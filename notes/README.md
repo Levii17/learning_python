@@ -1,12 +1,12 @@
 # Python Learning Notes
 
-> A structured, beginner-friendly walkthrough of Python — from setup to data structures to algorithms. Every note follows the same format: **plain-English definitions**, **everyday analogies**, and **clean, commented code snippets**.
+> A structured, beginner-friendly walkthrough of Python , from setup to data structures to algorithms. Every note follows the same format: **plain-English definitions**, **everyday analogies**, and **clean, commented code snippets**.
 
 ---
 
 ## How to Use This Repo
 
-Each file is self-contained and scannable — open any one and jump straight to the section you need via its table of contents. That said, they're ordered below to build on each other, so if you're going through this from scratch, working top to bottom is the smoothest path.
+Each file is self-contained and scannable , open any one and jump straight to the section you need via its table of contents. That said, they're ordered below to build on each other, so if you're going through this from scratch, working top to bottom is the smoothest path.
 
 ---
 
@@ -43,15 +43,15 @@ Each file is self-contained and scannable — open any one and jump straight to 
 
 ## What Makes These Notes Different
 
-- **Plain-English definitions** — no jargon without an explanation first
-- **Everyday analogies** — every tricky concept gets tied to something familiar
-- **Commented code snippets** — every example shows the "why," not just the "what"
-- **Common pitfalls flagged** — the mistakes almost everyone makes are called out explicitly (e.g. `append()` vs `extend()`, `set()` vs `{}`, setter recursion traps)
+- **Plain-English definitions** , no jargon without an explanation first
+- **Everyday analogies** , every tricky concept gets tied to something familiar
+- **Commented code snippets** , every example shows the "why," not just the "what"
+- **Common pitfalls flagged** , the mistakes almost everyone makes are called out explicitly (e.g. `append()` vs `extend()`, `set()` vs `{}`, setter recursion traps)
 
 ---
 
 ## About
 
-Compiled and designed by **[@x_mxolisi_x](https://instagram.com/x_mxolisi_x)** — follow along for more study notes and progress updates.
+Compiled and designed by **[@x_mxolisi_x](https://instagram.com/x_mxolisi_x)** , follow along for more study notes and progress updates.
 
 *Have suggestions or spot an error? Feel free to open an issue or PR.*

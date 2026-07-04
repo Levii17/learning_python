@@ -1,4 +1,4 @@
-# Installing Python — The Beginner-Friendly Guide
+# Installing Python , The Beginner-Friendly Guide
 
 > Everything you need to get Python running on your own machine, explained simply.
 
@@ -20,7 +20,7 @@
 
 **Simple definition:** Installing Python means downloading the official Python program onto your computer so it can understand and run `.py` files.
 
-**Analogy:** Installing Python is like installing a translator app before visiting a foreign country — without it, your computer has no idea what to do with the "language" you're writing in.
+**Analogy:** Installing Python is like installing a translator app before visiting a foreign country , without it, your computer has no idea what to do with the "language" you're writing in.
 
 **How to do it:**
 - Go to **[python.org](https://www.python.org/)**
@@ -28,7 +28,7 @@
 - Click the button showing the current version for your OS (Windows, Mac, or Linux)
 - Run the installer and follow the prompts
 
-> **Windows users:** During install, make sure to check **"Add python.exe to PATH"** — this saves you a headache later, since it lets you run `python` from any folder in your terminal.
+> **Windows users:** During install, make sure to check **"Add python.exe to PATH"** , this saves you a headache later, since it lets you run `python` from any folder in your terminal.
 
 **Verify it worked** by opening your terminal and typing:
 
@@ -46,23 +46,23 @@ If you see something like `Python 3.12.2`, you're good to go!
 
 ## What is a Terminal?
 
-**Simple definition:** A terminal is a text-based way to talk to your computer — instead of clicking icons, you type commands.
+**Simple definition:** A terminal is a text-based way to talk to your computer , instead of clicking icons, you type commands.
 
-**Analogy:** If your desktop with icons and windows is like ordering food by pointing at pictures on a menu, the terminal is like calling in your order directly — more direct, a little intimidating at first, but way faster once you know the "menu" (commands).
+**Analogy:** If your desktop with icons and windows is like ordering food by pointing at pictures on a menu, the terminal is like calling in your order directly , more direct, a little intimidating at first, but way faster once you know the "menu" (commands).
 
 | OS | Default Terminal App |
 |---|---|
 | macOS | Terminal |
 | Windows | Command Prompt or PowerShell |
-| Linux | Depends on desktop — e.g. GNOME Terminal, Konsole |
+| Linux | Depends on desktop , e.g. GNOME Terminal, Konsole |
 
 ---
 
 ## What is an IDE?
 
-**Simple definition:** IDE stands for **Integrated Development Environment** — a single app that bundles the tools you need to write, test, and run code.
+**Simple definition:** IDE stands for **Integrated Development Environment** , a single app that bundles the tools you need to write, test, and run code.
 
-**Analogy:** An IDE is like a fully-stocked workshop instead of a single toolbox — you've got your code editor, a built-in terminal, and testing tools all in one place, instead of switching between separate apps.
+**Analogy:** An IDE is like a fully-stocked workshop instead of a single toolbox , you've got your code editor, a built-in terminal, and testing tools all in one place, instead of switching between separate apps.
 
 ---
 
@@ -70,9 +70,9 @@ If you see something like `Python 3.12.2`, you're good to go!
 
 Some go-to choices for Python development:
 
-- **VS Code** — free, lightweight, hugely popular ([download here](https://code.visualstudio.com/download))
-- **PyCharm** — feature-rich, Python-specific IDE
-- **Spyder** — popular in the data science community
+- **VS Code** , free, lightweight, hugely popular ([download here](https://code.visualstudio.com/download))
+- **PyCharm** , feature-rich, Python-specific IDE
+- **Spyder** , popular in the data science community
 
 ---
 
@@ -80,12 +80,12 @@ Some go-to choices for Python development:
 
 **Simple definition:** "Running code locally" just means executing your Python file on your own computer, rather than in an online editor.
 
-**Analogy:** It's the difference between practicing piano on a keyboard at a music store (an online editor) versus on your own piano at home (your local machine) — same skill, but now it's set up permanently in your own space.
+**Analogy:** It's the difference between practicing piano on a keyboard at a music store (an online editor) versus on your own piano at home (your local machine) , same skill, but now it's set up permanently in your own space.
 
-**Option 1 — The Run button:**
+**Option 1 , The Run button:**
 In VS Code, click the play button in the upper-right corner. This opens a terminal automatically and runs your script.
 
-**Option 2 — Run it manually from the terminal:**
+**Option 2 , Run it manually from the terminal:**
 
 ```bash
 # Step 1: Navigate into the folder containing your file
@@ -95,15 +95,15 @@ cd python-projects
 python main.py
 ```
 
-> If `python main.py` doesn't work, try `python3 main.py` — common on macOS/Linux setups where both Python 2 and 3 exist.
+> If `python main.py` doesn't work, try `python3 main.py` , common on macOS/Linux setups where both Python 2 and 3 exist.
 
 ---
 
 ## The Python Interactive Shell
 
-**Simple definition:** The interactive shell is a mode where you type one line of Python at a time and see the result immediately — no need to save a whole file first.
+**Simple definition:** The interactive shell is a mode where you type one line of Python at a time and see the result immediately , no need to save a whole file first.
 
-**Analogy:** Think of it like a chat conversation with Python — you say something, it replies instantly, then waits for your next line. A full `.py` script, by contrast, is more like mailing a whole letter and waiting for one final response.
+**Analogy:** Think of it like a chat conversation with Python , you say something, it replies instantly, then waits for your next line. A full `.py` script, by contrast, is more like mailing a whole letter and waiting for one final response.
 
 **How to open it:** Type `python` (or `python3`) in your terminal and press **Enter**. You'll see something like:
 
@@ -113,7 +113,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
-That `>>>` is Python's way of saying *"I'm listening — type something."*
+That `>>>` is Python's way of saying *"I'm listening , type something."*
 
 ```bash
 >>> print("Hello, world!")
@@ -129,9 +129,9 @@ Hello, world!
 
 ## The REPL Cycle
 
-**Simple definition:** REPL stands for **Read, Evaluate, Print, Loop** — it's the exact process the interactive shell follows every time you hit Enter.
+**Simple definition:** REPL stands for **Read, Evaluate, Print, Loop** , it's the exact process the interactive shell follows every time you hit Enter.
 
-**Analogy:** Picture a conversation loop with a very literal assistant: they **R**ead what you said, **E**valuate what it means, **P**rint their response, then **L**oop back and wait to hear from you again — over and over, forever (until you say goodbye).
+**Analogy:** Picture a conversation loop with a very literal assistant: they **R**ead what you said, **E**valuate what it means, **P**rint their response, then **L**oop back and wait to hear from you again , over and over, forever (until you say goodbye).
 
 ```bash
 >>> something random
@@ -141,13 +141,13 @@ Hello, world!
 SyntaxError: invalid syntax
 ```
 
-Even when you type something invalid, the REPL still completes its cycle — it just prints an error instead of a result, then loops back to `>>>` for your next attempt. Errors here are totally normal — it's Python's way of pointing out a typo, not a sign something's broken.
+Even when you type something invalid, the REPL still completes its cycle , it just prints an error instead of a result, then loops back to `>>>` for your next attempt. Errors here are totally normal , it's Python's way of pointing out a typo, not a sign something's broken.
 
 ---
 
 ## You're Set Up!
 
-You now know how to install Python, open a terminal, choose an editor, and run code both as full scripts and one line at a time. From here, every lesson you go through can (and should!) be tested on your own machine — that's where the real learning sticks.
+You now know how to install Python, open a terminal, choose an editor, and run code both as full scripts and one line at a time. From here, every lesson you go through can (and should!) be tested on your own machine , that's where the real learning sticks.
 
 ---
 *Notes compiled and designed by [@x_mxolisi_x](https://instagram.com/x_mxolisi_x)*

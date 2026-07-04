@@ -1,6 +1,6 @@
-# Linear Data Structures — The Beginner-Friendly Guide
+# Linear Data Structures , The Beginner-Friendly Guide
 
-> Algorithms, Big O notation, and the core data structures that power efficient code — arrays, stacks, queues, linked lists, hash maps, and sets.
+> Algorithms, Big O notation, and the core data structures that power efficient code , arrays, stacks, queues, linked lists, hash maps, and sets.
 
 ---
 
@@ -23,11 +23,11 @@
 
 ## Algorithms & Big O Notation
 
-**Simple definition:** An algorithm is a precise, step-by-step set of instructions for solving a problem — it must always finish, and every step must be crystal clear.
+**Simple definition:** An algorithm is a precise, step-by-step set of instructions for solving a problem , it must always finish, and every step must be crystal clear.
 
-**Analogy:** An algorithm is like a recipe — vague instructions like "cook until it feels right" don't count; a real recipe has clear, ordered, unambiguous steps that reliably produce the same dish every time.
+**Analogy:** An algorithm is like a recipe , vague instructions like "cook until it feels right" don't count; a real recipe has clear, ordered, unambiguous steps that reliably produce the same dish every time.
 
-**Big O Notation** describes how an algorithm's performance (time or memory) grows as the input size grows — specifically, its *worst-case* behavior.
+**Big O Notation** describes how an algorithm's performance (time or memory) grows as the input size grows , specifically, its *worst-case* behavior.
 
 **Analogy:** Think of Big O like describing how long a queue takes to clear, not based on today's lucky short line, but based on the worst possible rush-hour crowd. It's less about exact seconds and more about the *pattern* of how wait times scale as more people join.
 
@@ -38,15 +38,15 @@
 | Complexity | Name | What it means |
 |---|---|---|
 | `O(1)` | Constant | Same speed no matter the input size |
-| `O(log n)` | Logarithmic | Grows slowly — repeatedly cuts the problem down |
+| `O(log n)` | Logarithmic | Grows slowly , repeatedly cuts the problem down |
 | `O(n)` | Linear | Grows directly proportional to input size |
 | `O(n log n)` | Log-Linear | Common in efficient sorting algorithms |
-| `O(n²)` | Quadratic | Grows by the square — common in nested loops |
+| `O(n²)` | Quadratic | Grows by the square , common in nested loops |
 
-**Analogy for the shape of the growth:** `O(1)` is like checking if a light switch is on — takes the same instant whether there's 1 room or 1,000 rooms in the house. `O(n²)` is like everyone at a party shaking hands with everyone else — the more people you add, the number of handshakes explodes far faster than the guest count itself.
+**Analogy for the shape of the growth:** `O(1)` is like checking if a light switch is on , takes the same instant whether there's 1 room or 1,000 rooms in the house. `O(n²)` is like everyone at a party shaking hands with everyone else , the more people you add, the number of handshakes explodes far faster than the guest count itself.
 
 ```python
-# O(1) — Constant Time: same speed regardless of input size
+# O(1) , Constant Time: same speed regardless of input size
 def check_even_or_odd(number):
     if number % 2 == 0:
         return 'Even'
@@ -55,13 +55,13 @@ def check_even_or_odd(number):
 ```
 
 ```python
-# O(n) — Linear Time: one pass through the data
+# O(n) , Linear Time: one pass through the data
 for grade in grades:
     print(grade)
 ```
 
 ```python
-# O(n²) — Quadratic Time: a loop nested inside another loop
+# O(n²) , Quadratic Time: a loop nested inside another loop
 for i in range(n):
     for j in range(n):
         print("Hello, World!")
@@ -94,7 +94,7 @@ Before writing any code, read the problem statement more than once. Identify:
 ### Pseudocode
 **Simple definition:** A high-level, language-independent way to sketch out your algorithm's logic using plain English mixed with programming-style structure (`IF`, `ELSE`, `FOR`, `WHILE`).
 
-**Analogy:** Pseudocode is like a rough sketch before painting — you're mapping out the composition without worrying about exact brushstrokes (syntax) yet.
+**Analogy:** Pseudocode is like a rough sketch before painting , you're mapping out the composition without worrying about exact brushstrokes (syntax) yet.
 
 ```
 GET original_string
@@ -105,9 +105,9 @@ DISPLAY reversed_string
 ```
 
 ### Edge Cases
-**Simple definition:** Edge cases are the unusual, boundary-level inputs your algorithm needs to handle correctly — empty inputs, single-item inputs, negative numbers, duplicates, and so on.
+**Simple definition:** Edge cases are the unusual, boundary-level inputs your algorithm needs to handle correctly , empty inputs, single-item inputs, negative numbers, duplicates, and so on.
 
-**Analogy:** Edge cases are like stress-testing a bridge not just with normal traffic, but with the heaviest truck, a single pedestrian, or zero cars at all — you want to know it holds up in every scenario, not just the average one.
+**Analogy:** Edge cases are like stress-testing a bridge not just with normal traffic, but with the heaviest truck, a single pedestrian, or zero cars at all , you want to know it holds up in every scenario, not just the average one.
 
 ---
 
@@ -115,9 +115,9 @@ DISPLAY reversed_string
 
 **Simple definition:** An array is a collection of elements stored in order, usually right next to each other in memory.
 
-**Analogy:** A static array is like a fixed row of numbered lockers — the count is set in stone the moment they're built. A dynamic array is like a row of lockers that can magically extend itself with more lockers whenever you run out of room.
+**Analogy:** A static array is like a fixed row of numbered lockers , the count is set in stone the moment they're built. A dynamic array is like a row of lockers that can magically extend itself with more lockers whenever you run out of room.
 
-- **Static Arrays:** Fixed size, set at creation — can't grow or shrink
+- **Static Arrays:** Fixed size, set at creation , can't grow or shrink
 - **Dynamic Arrays:** Automatically resize (usually by copying to a bigger array behind the scenes) as needed
 
 ### Python Lists Are Dynamic Arrays
@@ -138,27 +138,27 @@ numbers.pop()        # remove the last element
 |---|---|
 | Access by index | `O(1)` |
 | Insert at end | `O(1)` average, `O(n)` if resizing is triggered |
-| Insert in middle | `O(n)` — everything after must shift |
+| Insert in middle | `O(n)` , everything after must shift |
 | Delete | `O(1)` at the end, `O(n)` in the middle |
 
 ---
 
 ## Stacks
 
-**Simple definition:** A stack follows **Last-In, First-Out (LIFO)** — the most recently added item is the first one removed.
+**Simple definition:** A stack follows **Last-In, First-Out (LIFO)** , the most recently added item is the first one removed.
 
-**Analogy:** A stack is like a pile of plates on a counter — you can only add a new plate to the top, and you can only take a plate off from the top. You'd never yank one out from the bottom without the whole pile toppling.
+**Analogy:** A stack is like a pile of plates on a counter , you can only add a new plate to the top, and you can only take a plate off from the top. You'd never yank one out from the bottom without the whole pile toppling.
 
 ```python
 # Using a Python list as a stack
 stack = []
 
-# Push — adding to the top
+# Push , adding to the top
 stack.append(1)
 stack.append(2)
 stack.append(3)
 
-# Pop — removing from the top
+# Pop , removing from the top
 top_element = stack.pop()  # Returns 3
 ```
 
@@ -171,21 +171,21 @@ top_element = stack.pop()  # Returns 3
 
 ## Queues
 
-**Simple definition:** A queue follows **First-In, First-Out (FIFO)** — the first item added is the first one removed.
+**Simple definition:** A queue follows **First-In, First-Out (FIFO)** , the first item added is the first one removed.
 
-**Analogy:** A queue is exactly like a line at a coffee shop — whoever joined the line first gets served first, and new people join at the back, not the front.
+**Analogy:** A queue is exactly like a line at a coffee shop , whoever joined the line first gets served first, and new people join at the back, not the front.
 
 ```python
 from collections import deque
 
 queue = deque()
 
-# Enqueue — adding to the back
+# Enqueue , adding to the back
 queue.append(1)
 queue.append(2)
 queue.append(3)
 
-# Dequeue — removing from the front
+# Dequeue , removing from the front
 first_element = queue.popleft()  # Returns 1
 ```
 
@@ -200,13 +200,13 @@ first_element = queue.popleft()  # Returns 1
 
 **Simple definition:** A linked list is a chain of "nodes," where each node holds some data plus a reference (pointer) to the next node in the chain.
 
-**Analogy:** A linked list is like a scavenger hunt — each clue (node) tells you the answer *and* where to find the next clue. You can't jump straight to clue #5; you have to follow the chain from the start.
+**Analogy:** A linked list is like a scavenger hunt , each clue (node) tells you the answer *and* where to find the next clue. You can't jump straight to clue #5; you have to follow the chain from the start.
 
 ### Singly Linked Lists
 - Each node has data + **one** reference (to the next node)
 - You can only move **forward**, from head to tail
-- **Head:** the first node — usually the only one you can access directly
-- **Tail:** the last node — its "next" reference points to `None`
+- **Head:** the first node , usually the only one you can access directly
+- **Tail:** the last node , its "next" reference points to `None`
 
 | Operation | Time Complexity | Why |
 |---|---|---|
@@ -218,7 +218,7 @@ first_element = queue.popleft()  # Returns 1
 | Delete from middle | `O(n)` | Must locate the target node first |
 
 ### Doubly Linked Lists
-**Analogy:** A doubly linked list is like that same scavenger hunt, but each clue *also* tells you how to get back to the previous clue — you can now walk the trail in either direction, at the cost of carrying one extra piece of information at each stop.
+**Analogy:** A doubly linked list is like that same scavenger hunt, but each clue *also* tells you how to get back to the previous clue , you can now walk the trail in either direction, at the cost of carrying one extra piece of information at each stop.
 
 - Each node has data + **two** references (next *and* previous)
 - Can traverse in **both directions**
@@ -230,7 +230,7 @@ first_element = queue.popleft()  # Returns 1
 
 **Simple definition:** A hash map (Python's dictionary) stores key-value pairs, using a **hash function** to quickly figure out exactly where to store and retrieve each key.
 
-**Analogy:** A hash map is like a library that assigns each book a very specific shelf number based on its title — instead of scanning every shelf, the hash function tells you instantly which shelf to walk straight to.
+**Analogy:** A hash map is like a library that assigns each book a very specific shelf number based on its title , instead of scanning every shelf, the hash function tells you instantly which shelf to walk straight to.
 
 ```python
 my_dictionary = {"A": 1, "B": 2, "C": 3}
@@ -251,19 +251,19 @@ my_dictionary.items()
 
 ### Time Complexities for Hash Maps
 - **Average case:** `O(1)` for insert, get, and delete
-- **Worst case:** `O(n)` — happens when many hash collisions pile up
+- **Worst case:** `O(n)` , happens when many hash collisions pile up
 
 ---
 
 ## Sets
 
-**Simple definition:** A set is an unordered collection that only allows unique elements — no duplicates, no guaranteed order.
+**Simple definition:** A set is an unordered collection that only allows unique elements , no duplicates, no guaranteed order.
 
 **Analogy:** A set is like a guest list where each name can only appear once, no matter how many times someone tries to sign up twice.
 
 ```python
 numbers = {1, 2, 3, 4}
-empty_set = set()  # must use set() — {} creates an empty dictionary instead!
+empty_set = set()  # must use set() , {} creates an empty dictionary instead!
 
 numbers.add(5)
 numbers.remove(4)   # raises KeyError if the item isn't found
@@ -284,7 +284,7 @@ set_a.isdisjoint(set_b)
 5 in numbers  # membership check
 ```
 
-> Sets can only hold **immutable** items (numbers, strings, tuples) — this is because their hash value must never change once stored.
+> Sets can only hold **immutable** items (numbers, strings, tuples) , this is because their hash value must never change once stored.
 
 ### Time Complexities for Sets
 - **Average case:** `O(1)` for add, remove, and membership testing
@@ -294,12 +294,12 @@ set_a.isdisjoint(set_b)
 
 ## Hash Collisions
 
-**Simple definition:** A hash collision happens when two different keys happen to produce the same hash value — meaning they'd otherwise want to occupy the same storage spot.
+**Simple definition:** A hash collision happens when two different keys happen to produce the same hash value , meaning they'd otherwise want to occupy the same storage spot.
 
-**Analogy:** Imagine two different people getting assigned the same locker number by accident — the system needs a backup plan for what happens next.
+**Analogy:** Imagine two different people getting assigned the same locker number by accident , the system needs a backup plan for what happens next.
 
 **Collision resolution strategies:**
-- **Chaining:** Each storage slot holds a small linked list of every item that landed there — so a collision just adds another link in that slot's chain
+- **Chaining:** Each storage slot holds a small linked list of every item that landed there , so a collision just adds another link in that slot's chain
 - **Open Addressing:** When a slot is already taken, the system searches for the next available slot using a predictable pattern
 
 ---
@@ -309,8 +309,8 @@ set_a.isdisjoint(set_b)
 | Structure | Best for |
 |---|---|
 | **Lists** | Ordered, indexed access when you don't know the size upfront |
-| **Stacks** | LIFO needs — undo functionality, expression evaluation, backtracking |
-| **Queues** | FIFO needs — task scheduling, breadth-first search |
+| **Stacks** | LIFO needs , undo functionality, expression evaluation, backtracking |
+| **Queues** | FIFO needs , task scheduling, breadth-first search |
 | **Linked Lists** | Frequent insert/delete at the beginning, unknown size, no need for random access |
 | **Hash Maps** | Fast key-value lookups, counting occurrences, caching |
 | **Sets** | Uniqueness checks, mathematical set operations, removing duplicates |
@@ -319,7 +319,7 @@ set_a.isdisjoint(set_b)
 
 ## Solid Foundation!
 
-You now understand not just *how* to use these structures, but *why* you'd reach for one over another — which is exactly the kind of thinking that separates "I can write code" from "I can write efficient code." Big O especially will keep paying off the deeper you go into more advanced algorithms and technical interviews.
+You now understand not just *how* to use these structures, but *why* you'd reach for one over another , which is exactly the kind of thinking that separates "I can write code" from "I can write efficient code." Big O especially will keep paying off the deeper you go into more advanced algorithms and technical interviews.
 
 ---
 *Notes compiled and designed by [@x_mxolisi_x](https://instagram.com/x_mxolisi_x)*

@@ -1,4 +1,4 @@
-# Dynamic Programming — The Beginner-Friendly Guide
+# Dynamic Programming , The Beginner-Friendly Guide
 
 > Turning painfully slow recursive problems into fast, efficient solutions by remembering what you've already solved.
 
@@ -20,11 +20,11 @@
 
 ## What is Dynamic Programming?
 
-**Simple definition:** Dynamic programming (DP) is a technique for solving complex problems by breaking them into simpler subproblems, and — crucially — **storing** the results so you never solve the same subproblem twice.
+**Simple definition:** Dynamic programming (DP) is a technique for solving complex problems by breaking them into simpler subproblems, and , crucially , **storing** the results so you never solve the same subproblem twice.
 
-**Analogy:** Imagine doing your times tables homework, and every time you need `7 × 8`, you re-derive it from scratch by adding 7 eight times. Dynamic programming is like writing that answer down the first time you calculate it, then just glancing at your notes every time it comes up again — the math doesn't change, so why redo the work?
+**Analogy:** Imagine doing your times tables homework, and every time you need `7 × 8`, you re-derive it from scratch by adding 7 eight times. Dynamic programming is like writing that answer down the first time you calculate it, then just glancing at your notes every time it comes up again , the math doesn't change, so why redo the work?
 
-DP can take problems that would normally take **exponential time** and shrink them down to **polynomial time** — often the difference between a program finishing instantly versus one that would still be running years from now.
+DP can take problems that would normally take **exponential time** and shrink them down to **polynomial time** , often the difference between a program finishing instantly versus one that would still be running years from now.
 
 ---
 
@@ -35,12 +35,12 @@ Dynamic programming applies when a problem has **both** of these properties:
 ### 1. Overlapping Subproblems
 **Simple definition:** The same smaller calculation gets requested again and again while solving the bigger problem.
 
-**Analogy:** Like multiple recipes in a cookbook all separately calling for "prepare a basic tomato sauce" — instead of making that sauce from scratch every single time, you make a big batch once and reuse it wherever it's needed.
+**Analogy:** Like multiple recipes in a cookbook all separately calling for "prepare a basic tomato sauce" , instead of making that sauce from scratch every single time, you make a big batch once and reuse it wherever it's needed.
 
 ### 2. Optimal Substructure
 **Simple definition:** The best overall solution can be built directly from the best solutions to its smaller pieces.
 
-**Analogy:** Like planning the cheapest possible road trip — if you know the cheapest route from City A to City B, and the cheapest route from City B to City C, the cheapest full trip A→C is just those two best routes combined.
+**Analogy:** Like planning the cheapest possible road trip , if you know the cheapest route from City A to City B, and the cheapest route from City B to City C, the cheapest full trip A→C is just those two best routes combined.
 
 ---
 
@@ -58,25 +58,25 @@ def climb_stairs_recursive(n):
 
 **The problem:** this recalculates the same values over and over. For `climb_stairs(5)`:
 - `climb_stairs(5)` calls `climb_stairs(4)` and `climb_stairs(3)`
-- `climb_stairs(4)` *also* calls `climb_stairs(3)` — a repeat!
+- `climb_stairs(4)` *also* calls `climb_stairs(3)` , a repeat!
 - `climb_stairs(3)` gets calculated twice, `climb_stairs(2)` gets calculated three times total
 
-For `n=5`, that's **9 function calls** to get just **5 unique answers**. As `n` grows, this redundancy explodes — `climb_stairs(30)` would trigger *millions* of calls.
+For `n=5`, that's **9 function calls** to get just **5 unique answers**. As `n` grows, this redundancy explodes , `climb_stairs(30)` would trigger *millions* of calls.
 
-> This naive approach runs in `O(2ⁿ)` time — exponential, and impractical for anything beyond small inputs.
+> This naive approach runs in `O(2ⁿ)` time , exponential, and impractical for anything beyond small inputs.
 
 ---
 
 ## Memoization (Top-Down)
 
-**Simple definition:** Memoization solves the problem exactly like the recursive version above, but **caches** each result the first time it's calculated — so repeat calls become an instant lookup instead of more recursion.
+**Simple definition:** Memoization solves the problem exactly like the recursive version above, but **caches** each result the first time it's calculated , so repeat calls become an instant lookup instead of more recursion.
 
-**Analogy:** It's like keeping sticky notes on your desk with answers you've already worked out — next time the same question comes up, you just glance at the note instead of solving it all over again.
+**Analogy:** It's like keeping sticky notes on your desk with answers you've already worked out , next time the same question comes up, you just glance at the note instead of solving it all over again.
 
 ```python
 def climb_stairs_memo(n, memo={}):
     if n in memo:
-        return memo[n]  # cached result — instant O(1) lookup!
+        return memo[n]  # cached result , instant O(1) lookup!
 
     if n <= 2:
         return n
@@ -101,13 +101,13 @@ Call: climb_stairs_memo(5)
     Result: 3 + 2 = 5
     memo = {3: 3, 4: 5}   ← stored!
 
-  Call: climb_stairs_memo(3) → returns 3 FROM MEMO — no recursion needed!
+  Call: climb_stairs_memo(3) → returns 3 FROM MEMO , no recursion needed!
 
   Result: 5 + 3 = 8
   memo = {3: 3, 4: 5, 5: 8}
 ```
 
-Notice `climb_stairs_memo(3)` only ever gets *calculated* once — the second time it's needed, it's just a dictionary lookup.
+Notice `climb_stairs_memo(3)` only ever gets *calculated* once , the second time it's needed, it's just a dictionary lookup.
 
 **Efficiency comparison:**
 | | Naive Recursion | Memoization |
@@ -121,9 +121,9 @@ Notice `climb_stairs_memo(3)` only ever gets *calculated* once — the second ti
 
 ## Tabulation (Bottom-Up)
 
-**Simple definition:** Tabulation flips the approach — instead of starting big and recursing down, it starts from the smallest subproblem and iteratively **builds up** to the final answer, filling in a table (array) along the way.
+**Simple definition:** Tabulation flips the approach , instead of starting big and recursing down, it starts from the smallest subproblem and iteratively **builds up** to the final answer, filling in a table (array) along the way.
 
-**Analogy:** If memoization is like solving a big question and jotting down answers to sub-questions as you stumble into them, tabulation is like methodically filling in a crossword puzzle starting from square 1 — no backtracking, just steady forward progress.
+**Analogy:** If memoization is like solving a big question and jotting down answers to sub-questions as you stumble into them, tabulation is like methodically filling in a crossword puzzle starting from square 1 , no backtracking, just steady forward progress.
 
 ```python
 def climb_stairs_tabulation(n):
@@ -154,15 +154,15 @@ Final result: dp[5] = 8
 ```
 
 ### Why Tabulation Has Advantages Too
-- **No recursion overhead** — no risk of hitting Python's recursion limit on huge inputs
-- **Predictable execution order** — always calculated in a clean 1, 2, 3... sequence
-- **Cache-friendly** — sequential array access tends to be faster at the hardware level
+- **No recursion overhead** , no risk of hitting Python's recursion limit on huge inputs
+- **Predictable execution order** , always calculated in a clean 1, 2, 3... sequence
+- **Cache-friendly** , sequential array access tends to be faster at the hardware level
 
 ---
 
 ## ⚡ Space-Optimized Tabulation
 
-**Simple definition:** Since each step only ever needs the *previous two* values, we don't actually need to keep the whole table — just two rolling variables.
+**Simple definition:** Since each step only ever needs the *previous two* values, we don't actually need to keep the whole table , just two rolling variables.
 
 ```python
 def climb_stairs_optimized(n):
@@ -177,7 +177,7 @@ def climb_stairs_optimized(n):
     return prev1
 ```
 
-This shrinks space complexity from `O(n)` down to `O(1)` — same speed, far less memory.
+This shrinks space complexity from `O(n)` down to `O(1)` , same speed, far less memory.
 
 **Overall efficiency comparison:**
 | | Naive Recursion | Tabulation |
@@ -223,20 +223,20 @@ amount 6: dp[6] = min(dp[3]+1, dp[2]+1) = 2 → dp = [0,1,2,1,1,2,2]
 Final: dp[6] = 2   (achieved with 3 + 3)
 ```
 
-**Why this matters:** without DP, you'd need to test every possible *combination* of coins — an exponential explosion of possibilities. With DP, each amount from 1 to 6 is solved exactly once, and every larger amount reuses the smaller answers already stored.
+**Why this matters:** without DP, you'd need to test every possible *combination* of coins , an exponential explosion of possibilities. With DP, each amount from 1 to 6 is solved exactly once, and every larger amount reuses the smaller answers already stored.
 
 **Complexity:**
-- **Time:** `O(amount × number of coin types)` — dramatically better than trying every combination
+- **Time:** `O(amount × number of coin types)` , dramatically better than trying every combination
 - **Space:** `O(amount)` for the `dp` array
 
 ---
 
 ## Real-World Applications
 
-- **Route Optimization** — GPS systems use DP-based algorithms to compute shortest paths
-- **Text Processing** — spell checkers and autocomplete use DP to calculate "edit distance" between words
-- **Financial Modeling** — investment and portfolio optimization strategies
-- **Resource Allocation** — the classic "knapsack problem" and its variants appear in scheduling and budgeting
+- **Route Optimization** , GPS systems use DP-based algorithms to compute shortest paths
+- **Text Processing** , spell checkers and autocomplete use DP to calculate "edit distance" between words
+- **Financial Modeling** , investment and portfolio optimization strategies
+- **Resource Allocation** , the classic "knapsack problem" and its variants appear in scheduling and budgeting
 
 ---
 
@@ -249,15 +249,15 @@ Reach for DP when:
 - You're willing to trade a bit of **extra memory** for a **big speed boost**
 
 **Common DP problem patterns:**
-- **Optimization problems** — finding a minimum or maximum value
-- **Counting problems** — counting the number of ways to achieve something
-- **Decision problems** — breaking a choice down into smaller sequential choices
+- **Optimization problems** , finding a minimum or maximum value
+- **Counting problems** , counting the number of ways to achieve something
+- **Decision problems** , breaking a choice down into smaller sequential choices
 
 ---
 
 ## Fantastic Progress!
 
-Dynamic programming is one of the most powerful — and most feared! — topics in computer science, but at its core it's just one simple idea: don't redo work you've already done. Once "overlapping subproblems" and "optimal substructure" start jumping out at you in new problems, you'll have unlocked one of the most valuable problem-solving tools in all of programming.
+Dynamic programming is one of the most powerful , and most feared! , topics in computer science, but at its core it's just one simple idea: don't redo work you've already done. Once "overlapping subproblems" and "optimal substructure" start jumping out at you in new problems, you'll have unlocked one of the most valuable problem-solving tools in all of programming.
 
 ---
 *Notes compiled and designed by [@x_mxolisi_x](https://instagram.com/x_mxolisi_x)*
