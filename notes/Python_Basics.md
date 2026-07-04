@@ -1,10 +1,10 @@
-# 🐍 Python Basics — The Beginner-Friendly Guide
+# Python Basics — The Beginner-Friendly Guide
 
 > A scannable, analogy-packed reference for anyone learning Python from scratch. Skim it, bookmark it, come back to it.
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 1. [What is Python?](#-what-is-python)
 2. [Variables](#-variables)
@@ -25,22 +25,22 @@
 
 ---
 
-## 🐍 What is Python?
+## What is Python?
 
 **Simple definition:** Python is a programming language built to be readable and easy to write — it reads almost like plain English.
 
 **Analogy:** If programming languages were vehicles, Python is the reliable, easy-to-drive automatic car — you don't need to know how the engine works to get where you're going. (C is the manual transmission sports car — faster in the right hands, but a lot more to manage.)
 
 **Where it's used:**
-- 📊 Data science & machine learning
-- 🌐 Web development
-- 🔐 Cybersecurity
-- 🤖 Automation & scripting
-- 🔌 Microcomputers (Raspberry Pi, MicroPython boards)
+- Data science & machine learning
+- Web development
+- Cybersecurity
+- Automation & scripting
+- Microcomputers (Raspberry Pi, MicroPython boards)
 
 ---
 
-## 📦 Variables
+## Variables
 
 **Simple definition:** A variable is a labeled container that holds a value so you can use it later.
 
@@ -52,7 +52,7 @@ name = 'John Doe'   # box labeled "name" holds a string
 age = 25             # box labeled "age" holds a number
 ```
 
-### ✅ Naming Rules Cheat Sheet
+### Naming Rules Cheat Sheet
 - Must start with a letter or underscore — never a number
 - Can only contain letters, numbers, and underscores
 - Case-sensitive → `age`, `Age`, and `AGE` are three *different* boxes
@@ -61,7 +61,7 @@ age = 25             # box labeled "age" holds a number
 
 ---
 
-## 💬 Comments
+## Comments
 
 **Simple definition:** Comments are notes in your code that Python ignores when running — they're for humans, not the computer.
 
@@ -84,13 +84,13 @@ print('Hello world!')  # Hello world!
 
 ---
 
-## 🔢 Common Data Types
+## Common Data Types
 
 **Simple definition:** A data type tells Python *what kind* of value you're working with (a number, text, true/false, etc.), which determines what you can do with it.
 
 **Analogy:** Data types are like different kinds of containers in a kitchen — you wouldn't pour soup into a colander or store ice cream in an open bowl. Each container (type) is suited to a specific job.
 
-> 💡 Python is **dynamically-typed** — like JavaScript, you never have to declare a type up front. Python figures it out from the value you assign.
+> Python is **dynamically-typed** — like JavaScript, you never have to declare a type up front. Python figures it out from the value you assign.
 
 | Type | What it is | Example |
 |---|---|---|
@@ -113,7 +113,7 @@ print('Dictionary:', my_dictionary_var)
 
 ---
 
-## 🔒 Mutable vs Immutable
+## Mutable vs Immutable
 
 **Simple definition:** *Immutable* means "can't be changed once created." *Mutable* means "can be changed after creation."
 
@@ -136,7 +136,7 @@ print(isinstance(age, str))       # False
 
 ---
 
-## ✍️ Working with Strings
+## Working with Strings
 
 **Simple definition:** A string is a sequence of characters — basically, text.
 
@@ -199,7 +199,7 @@ print('hey' in my_str)         # False
 
 ---
 
-## 🔧 Common String Methods
+## Common String Methods
 
 Think of these as pre-built "tools" that come attached to every string.
 
@@ -230,7 +230,7 @@ print(joined_str)   # example dashed name
 
 ---
 
-## ➗ Numbers: Ints & Floats
+## Numbers: Ints & Floats
 
 **Simple definition:** Basic math in Python works the way you'd expect from a calculator — plus a few extra handy operators.
 
@@ -249,7 +249,7 @@ print(int_1 // int_2)  # 4    → floor division: rounds down to whole number
 print(int_1 ** 2)      # 3136 → exponent: raise to the power of
 ```
 
-> ⚠️ Mixing an `int` and a `float` in an operation always upgrades the result to a `float`:
+> Mixing an `int` and a `float` in an operation always upgrades the result to a `float`:
 > `56 + 5.4` → `61.4`
 
 ### Handy Number Functions
@@ -284,7 +284,7 @@ Other augmented operators: `-=`, `*=`, `//=`, `%=`, `**=` (and bitwise ones: `&=
 
 ---
 
-## 🛠️ Functions
+## Functions
 
 **Simple definition:** A function is a reusable block of code that takes some input, does something with it, and (optionally) hands back a result.
 
@@ -322,7 +322,7 @@ calculate_sum()
 
 ---
 
-## 🧰 Common Built-in Functions
+## Common Built-in Functions
 
 **Simple definition:** Ready-made functions Python gives you for free — no need to build them yourself.
 
@@ -338,19 +338,19 @@ print(int(False))   # 0     → False becomes 0
 
 ---
 
-## 🌍 Scope
+## Scope
 
 **Simple definition:** Scope determines *where* in your code a variable can be seen and used.
 
 **Analogy:** Scope is like rooms in a house. A **local** variable only exists in the room (function) it was created in. A **global** variable is like something posted on the front door — visible from anywhere in the house. An **enclosing** scope is like a smaller room nested inside a bigger one — the inner room can see what's on the bigger room's shelf, but not vice versa.
 
 ```python
-# 🔒 Local scope — only visible inside my_func
+# Local scope — only visible inside my_func
 def my_func():
     num = 10
     print(num)
 
-# 🪆 Enclosing scope — inner_func can "see" msg from outer_func
+# Enclosing scope — inner_func can "see" msg from outer_func
 def outer_func():
     msg = 'Hello there!'
     def inner_func():
@@ -359,21 +359,21 @@ def outer_func():
 
 outer_func()  # Hello there!
 
-# 🌐 Global scope — visible everywhere
+# Global scope — visible everywhere
 tax = 0.70
 def get_total(subtotal):
     return subtotal + (subtotal * tax)
 
 print(get_total(100))  # 170.0
 
-# 🧱 Built-in scope — Python's own reserved names
+# Built-in scope — Python's own reserved names
 print(str(45))            # '45'
 print(type(3.14))         # <class 'float'>
 ```
 
 ---
 
-## ⚖️ Comparison Operators
+## Comparison Operators
 
 **Simple definition:** These operators compare two values and give back `True` or `False`.
 
@@ -388,7 +388,7 @@ print(type(3.14))         # <class 'float'>
 
 ---
 
-## 🚦 if / elif / else
+## if / elif / else
 
 **Simple definition:** These let your program make decisions — "if this is true, do that; otherwise, try something else."
 
@@ -400,7 +400,7 @@ age = 16
 if age >= 18:
     print('You are an adult')
 elif age >= 13:                  # only checked if the first was False
-    print('You are a teenager')  # 👈 this runs
+    print('You are a teenager')  # this runs
 else:
     print('You are a child')
 ```
@@ -412,14 +412,14 @@ age = 25
 
 if is_citizen:
     if age >= 18:
-        print('You are eligible to vote')  # 👈 this runs
+        print('You are eligible to vote')  #  this runs
 else:
     print('You are not eligible to vote')
 ```
 
 ---
 
-## ✅❌ Truthy & Falsy Values
+## Truthy & Falsy Values
 
 **Simple definition:** Every value in Python has a built-in "truthiness" — even if it's not an actual boolean, Python can treat it as `True` or `False` in a logical context.
 
@@ -441,7 +441,7 @@ print(bool('Hello')) # True
 
 ---
 
-## 🔗 Boolean Operators & Short-Circuiting
+## Boolean Operators & Short-Circuiting
 
 **Simple definition:** `and`, `or`, and `not` let you combine or flip logical conditions.
 
@@ -455,27 +455,27 @@ print(bool('Hello')) # True
 is_citizen = True
 age = 25
 if is_citizen and age >= 18:
-    print('You are eligible to vote')  # 👈 runs — both are truthy
+    print('You are eligible to vote')  # runs — both are truthy
 
 # or → at least one must be truthy
 age = 19
 is_student = True
 if age < 18 or is_student:
-    print('You are eligible for a student discount')  # 👈 runs
+    print('You are eligible for a student discount')  # runs
 
 # not → flips True to False and vice versa
 is_admin = False
 if not is_admin:
-    print('Access denied for non-administrators.')  # 👈 runs
+    print('Access denied for non-administrators.')  # runs
 ```
 
 **Short-circuiting:** Python reads `and`/`or` left to right and stops the moment it knows the answer — just like you'd stop reading a sentence once you already know how it ends.
 
 ---
 
-## 🎉 You Made It!
+## You Made It!
 
-You've now covered the real building blocks of Python — variables, data types, strings, numbers, functions, scope, and logic. Every advanced concept you'll learn next (loops, classes, error handling) is built on top of exactly this foundation. Keep going! 🚀
+You've now covered the real building blocks of Python — variables, data types, strings, numbers, functions, scope, and logic. Every advanced concept you'll learn next (loops, classes, error handling) is built on top of exactly this foundation. Keep going!
 
 ---
 *Notes compiled and designed by [@x_mxolisi_x](https://instagram.com/x_mxolisi_x)*

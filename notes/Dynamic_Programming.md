@@ -1,10 +1,10 @@
-# 🧩 Dynamic Programming — The Beginner-Friendly Guide
+# Dynamic Programming — The Beginner-Friendly Guide
 
 > Turning painfully slow recursive problems into fast, efficient solutions by remembering what you've already solved.
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 1. [What is Dynamic Programming?](#-what-is-dynamic-programming)
 2. [Core Principles](#-core-principles)
@@ -18,7 +18,7 @@
 
 ---
 
-## 🧠 What is Dynamic Programming?
+## What is Dynamic Programming?
 
 **Simple definition:** Dynamic programming (DP) is a technique for solving complex problems by breaking them into simpler subproblems, and — crucially — **storing** the results so you never solve the same subproblem twice.
 
@@ -28,7 +28,7 @@ DP can take problems that would normally take **exponential time** and shrink th
 
 ---
 
-## 🏛️ Core Principles
+## Core Principles
 
 Dynamic programming applies when a problem has **both** of these properties:
 
@@ -44,7 +44,7 @@ Dynamic programming applies when a problem has **both** of these properties:
 
 ---
 
-## 🐌 The Problem with Naive Recursion
+## The Problem with Naive Recursion
 
 Let's look at the classic **"climbing stairs"** problem: you're climbing a staircase of `n` steps, and can move up either 1 or 2 steps at a time. How many distinct ways can you reach the top?
 
@@ -63,11 +63,11 @@ def climb_stairs_recursive(n):
 
 For `n=5`, that's **9 function calls** to get just **5 unique answers**. As `n` grows, this redundancy explodes — `climb_stairs(30)` would trigger *millions* of calls.
 
-> ⚠️ This naive approach runs in `O(2ⁿ)` time — exponential, and impractical for anything beyond small inputs.
+> This naive approach runs in `O(2ⁿ)` time — exponential, and impractical for anything beyond small inputs.
 
 ---
 
-## 📥 Memoization (Top-Down)
+## Memoization (Top-Down)
 
 **Simple definition:** Memoization solves the problem exactly like the recursive version above, but **caches** each result the first time it's calculated — so repeat calls become an instant lookup instead of more recursion.
 
@@ -119,7 +119,7 @@ Notice `climb_stairs_memo(3)` only ever gets *calculated* once — the second ti
 
 ---
 
-## 📤 Tabulation (Bottom-Up)
+## Tabulation (Bottom-Up)
 
 **Simple definition:** Tabulation flips the approach — instead of starting big and recursing down, it starts from the smallest subproblem and iteratively **builds up** to the final answer, filling in a table (array) along the way.
 
@@ -188,7 +188,7 @@ This shrinks space complexity from `O(n)` down to `O(1)` — same speed, far les
 
 ---
 
-## 🪙 Practical Example: Coin Change Problem
+## Practical Example: Coin Change Problem
 
 **The question:** What's the *minimum* number of coins needed to make a target amount, given a set of coin denominations?
 
@@ -231,22 +231,22 @@ Final: dp[6] = 2   (achieved with 3 + 3)
 
 ---
 
-## 🌍 Real-World Applications
+## Real-World Applications
 
-- 🗺️ **Route Optimization** — GPS systems use DP-based algorithms to compute shortest paths
-- ✍️ **Text Processing** — spell checkers and autocomplete use DP to calculate "edit distance" between words
-- 💰 **Financial Modeling** — investment and portfolio optimization strategies
-- 📦 **Resource Allocation** — the classic "knapsack problem" and its variants appear in scheduling and budgeting
+- **Route Optimization** — GPS systems use DP-based algorithms to compute shortest paths
+- **Text Processing** — spell checkers and autocomplete use DP to calculate "edit distance" between words
+- **Financial Modeling** — investment and portfolio optimization strategies
+- **Resource Allocation** — the classic "knapsack problem" and its variants appear in scheduling and budgeting
 
 ---
 
-## 🤔 When to Use Dynamic Programming
+## When to Use Dynamic Programming
 
 Reach for DP when:
-- ✅ The problem breaks down into **overlapping subproblems**
-- ✅ The problem shows **optimal substructure**
-- ✅ A naive recursive approach would involve heavy repeated calculations
-- ✅ You're willing to trade a bit of **extra memory** for a **big speed boost**
+- The problem breaks down into **overlapping subproblems**
+- The problem shows **optimal substructure**
+- A naive recursive approach would involve heavy repeated calculations
+- You're willing to trade a bit of **extra memory** for a **big speed boost**
 
 **Common DP problem patterns:**
 - **Optimization problems** — finding a minimum or maximum value
@@ -255,9 +255,9 @@ Reach for DP when:
 
 ---
 
-## 🎉 Fantastic Progress!
+## Fantastic Progress!
 
-Dynamic programming is one of the most powerful — and most feared! — topics in computer science, but at its core it's just one simple idea: don't redo work you've already done. Once "overlapping subproblems" and "optimal substructure" start jumping out at you in new problems, you'll have unlocked one of the most valuable problem-solving tools in all of programming. 🚀
+Dynamic programming is one of the most powerful — and most feared! — topics in computer science, but at its core it's just one simple idea: don't redo work you've already done. Once "overlapping subproblems" and "optimal substructure" start jumping out at you in new problems, you'll have unlocked one of the most valuable problem-solving tools in all of programming.
 
 ---
 *Notes compiled and designed by [@x_mxolisi_x](https://instagram.com/x_mxolisi_x)*

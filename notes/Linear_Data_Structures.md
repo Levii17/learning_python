@@ -1,10 +1,10 @@
-# 🧱 Linear Data Structures — The Beginner-Friendly Guide
+# Linear Data Structures — The Beginner-Friendly Guide
 
 > Algorithms, Big O notation, and the core data structures that power efficient code — arrays, stacks, queues, linked lists, hash maps, and sets.
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 1. [Algorithms & Big O Notation](#-algorithms--big-o-notation)
 2. [Common Time Complexities](#-common-time-complexities)
@@ -21,7 +21,7 @@
 
 ---
 
-## 🧮 Algorithms & Big O Notation
+## Algorithms & Big O Notation
 
 **Simple definition:** An algorithm is a precise, step-by-step set of instructions for solving a problem — it must always finish, and every step must be crystal clear.
 
@@ -33,7 +33,7 @@
 
 ---
 
-## ⏱️ Common Time Complexities
+## Common Time Complexities
 
 | Complexity | Name | What it means |
 |---|---|---|
@@ -67,11 +67,11 @@ for i in range(n):
         print("Hello, World!")
 ```
 
-> 💡 `O(log n)` shows up in algorithms like **Binary Search**, which repeatedly cuts the remaining data in half instead of checking every item one by one.
+> `O(log n)` shows up in algorithms like **Binary Search**, which repeatedly cuts the remaining data in half instead of checking every item one by one.
 
 ---
 
-## 💾 Space Complexity
+## Space Complexity
 
 **Simple definition:** Just like time complexity measures speed, space complexity measures how much **memory** an algorithm needs as input size grows.
 
@@ -83,7 +83,7 @@ for i in range(n):
 
 ---
 
-## 🧠 Problem-Solving Techniques
+## Problem-Solving Techniques
 
 ### Understanding the Problem
 Before writing any code, read the problem statement more than once. Identify:
@@ -111,7 +111,7 @@ DISPLAY reversed_string
 
 ---
 
-## 📊 Arrays
+## Arrays
 
 **Simple definition:** An array is a collection of elements stored in order, usually right next to each other in memory.
 
@@ -143,7 +143,7 @@ numbers.pop()        # remove the last element
 
 ---
 
-## 📚 Stacks
+## Stacks
 
 **Simple definition:** A stack follows **Last-In, First-Out (LIFO)** — the most recently added item is the first one removed.
 
@@ -165,11 +165,11 @@ top_element = stack.pop()  # Returns 3
 - **Push:** add to the top → `O(1)`
 - **Pop:** remove from the top → `O(1)`
 
-> 💡 Stacks power things like the "undo" button in editors, and how your browser remembers your "back" history.
+> Stacks power things like the "undo" button in editors, and how your browser remembers your "back" history.
 
 ---
 
-## 🎟️ Queues
+## Queues
 
 **Simple definition:** A queue follows **First-In, First-Out (FIFO)** — the first item added is the first one removed.
 
@@ -192,11 +192,11 @@ first_element = queue.popleft()  # Returns 1
 - **Enqueue:** add to the back → `O(1)`
 - **Dequeue:** remove from the front → `O(1)`
 
-> 💡 Why `deque` instead of a plain list? Removing from the *front* of a regular Python list is slow (`O(n)`, since everything shifts down), but `deque` is built to make that operation just as fast as removing from the end.
+> Why `deque` instead of a plain list? Removing from the *front* of a regular Python list is slow (`O(n)`, since everything shifts down), but `deque` is built to make that operation just as fast as removing from the end.
 
 ---
 
-## 🔗 Linked Lists
+## Linked Lists
 
 **Simple definition:** A linked list is a chain of "nodes," where each node holds some data plus a reference (pointer) to the next node in the chain.
 
@@ -226,7 +226,7 @@ first_element = queue.popleft()  # Returns 1
 
 ---
 
-## 🗺️ Hash Maps
+## Hash Maps
 
 **Simple definition:** A hash map (Python's dictionary) stores key-value pairs, using a **hash function** to quickly figure out exactly where to store and retrieve each key.
 
@@ -255,7 +255,7 @@ my_dictionary.items()
 
 ---
 
-## 🎯 Sets
+## Sets
 
 **Simple definition:** A set is an unordered collection that only allows unique elements — no duplicates, no guaranteed order.
 
@@ -263,7 +263,7 @@ my_dictionary.items()
 
 ```python
 numbers = {1, 2, 3, 4}
-empty_set = set()  # ⚠️ must use set() — {} creates an empty dictionary instead!
+empty_set = set()  # must use set() — {} creates an empty dictionary instead!
 
 numbers.add(5)
 numbers.remove(4)   # raises KeyError if the item isn't found
@@ -284,7 +284,7 @@ set_a.isdisjoint(set_b)
 5 in numbers  # membership check
 ```
 
-> ⚠️ Sets can only hold **immutable** items (numbers, strings, tuples) — this is because their hash value must never change once stored.
+> Sets can only hold **immutable** items (numbers, strings, tuples) — this is because their hash value must never change once stored.
 
 ### Time Complexities for Sets
 - **Average case:** `O(1)` for add, remove, and membership testing
@@ -292,7 +292,7 @@ set_a.isdisjoint(set_b)
 
 ---
 
-## 💥 Hash Collisions
+## Hash Collisions
 
 **Simple definition:** A hash collision happens when two different keys happen to produce the same hash value — meaning they'd otherwise want to occupy the same storage spot.
 
@@ -304,7 +304,7 @@ set_a.isdisjoint(set_b)
 
 ---
 
-## 🧭 When to Use Each Data Structure
+## When to Use Each Data Structure
 
 | Structure | Best for |
 |---|---|
@@ -317,9 +317,9 @@ set_a.isdisjoint(set_b)
 
 ---
 
-## 🎉 Solid Foundation!
+## Solid Foundation!
 
-You now understand not just *how* to use these structures, but *why* you'd reach for one over another — which is exactly the kind of thinking that separates "I can write code" from "I can write efficient code." Big O especially will keep paying off the deeper you go into more advanced algorithms and technical interviews. 🚀
+You now understand not just *how* to use these structures, but *why* you'd reach for one over another — which is exactly the kind of thinking that separates "I can write code" from "I can write efficient code." Big O especially will keep paying off the deeper you go into more advanced algorithms and technical interviews.
 
 ---
 *Notes compiled and designed by [@x_mxolisi_x](https://instagram.com/x_mxolisi_x)*

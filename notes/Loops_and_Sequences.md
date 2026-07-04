@@ -1,10 +1,10 @@
-# 🔁 Loops & Sequences — The Beginner-Friendly Guide
+# Loops & Sequences — The Beginner-Friendly Guide
 
 > Lists, tuples, loops, and the handy tools that make repetitive tasks effortless.
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 1. [Python Lists](#-python-lists)
 2. [List Methods](#-list-methods)
@@ -20,7 +20,7 @@
 
 ---
 
-## 📋 Python Lists
+## Python Lists
 
 **Simple definition:** A list is an ordered, changeable collection of items — you can hold strings, numbers, or even other lists inside one.
 
@@ -56,7 +56,7 @@ del developer[1]
 print(developer)  # ['Jane Doe', 'Python Developer']
 ```
 
-> ⚠️ Using an index that doesn't exist raises an `IndexError` — Python has no "slot 10" if your list only has 4 items.
+> Using an index that doesn't exist raises an `IndexError` — Python has no "slot 10" if your list only has 4 items.
 
 ### Checking Membership
 ```python
@@ -88,7 +88,7 @@ name, *rest = developer
 # name = 'Alice', rest = [34, 'Rust Developer']
 ```
 
-> ⚠️ If your variable count doesn't match the list length (and you're not using `*`), you'll get a `ValueError`.
+> If your variable count doesn't match the list length (and you're not using `*`), you'll get a `ValueError`.
 
 ### Slicing Lists
 ```python
@@ -101,7 +101,7 @@ print(numbers[1::2])   # [2, 4, 6] → start at index 1, step by 2
 
 ---
 
-## 🔧 List Methods
+## List Methods
 
 | Method | What it does | Example |
 |---|---|---|
@@ -121,14 +121,14 @@ numbers = [1, 2, 3, 4, 5]
 even_numbers = [6, 8, 10]
 
 numbers.append(even_numbers)
-print(numbers)  # [1, 2, 3, 4, 5, [6, 8, 10]] ⚠️ adds the WHOLE list as one item
+print(numbers)  # [1, 2, 3, 4, 5, [6, 8, 10]] adds the WHOLE list as one item
 
 numbers = [1, 2, 3, 4, 5]
 numbers.extend(even_numbers)
-print(numbers)  # [1, 2, 3, 4, 5, 6, 8, 10] ✅ adds each item individually
+print(numbers)  # [1, 2, 3, 4, 5, 6, 8, 10] adds each item individually
 ```
 
-> 💡 **`sort()` vs `sorted()`:** `sort()` changes the original list and returns nothing. `sorted()` leaves the original untouched and hands you a brand-new sorted list — use whichever fits your situation.
+> **`sort()` vs `sorted()`:** `sort()` changes the original list and returns nothing. `sorted()` leaves the original untouched and hands you a brand-new sorted list — use whichever fits your situation.
 
 ```python
 numbers = [19, 2, 35, 1, 67, 41]
@@ -140,7 +140,7 @@ print(numbers)          # [19, 2, 35, 1, 67, 41] → original is untouched
 
 ---
 
-## 📦 Tuples
+## Tuples
 
 **Simple definition:** A tuple is like a list, but **locked** — once created, its contents can't be changed.
 
@@ -184,15 +184,15 @@ desserts = ('cake', 'pie', 'cookies', 'ice cream')
 print(desserts[1:3])  # ('pie', 'cookies')
 ```
 
-> ⚠️ `del` on a tuple item raises a `TypeError` — tuples don't allow removal either.
+> `del` on a tuple item raises a `TypeError` — tuples don't allow removal either.
 
-### 🤔 List vs Tuple — Which Do I Use?
+### List vs Tuple — Which Do I Use?
 - Need to **add, remove, or change** items later? → **List**
 - Data is **fixed and shouldn't change** (like coordinates, or a date)? → **Tuple**
 
 ---
 
-## 🔧 Common Tuple Methods
+## Common Tuple Methods
 
 Tuples only get two methods (since they're locked, there's less to do):
 
@@ -207,7 +207,7 @@ print(programming_languages.count('JavaScript'))  # 0
 print(programming_languages.index('Java'))  # 1
 ```
 
-> ⚠️ `index()` raises a `ValueError` if the item isn't found at all.
+> `index()` raises a `ValueError` if the item isn't found at all.
 
 ```python
 # You can narrow the search with optional start/end positions
@@ -234,7 +234,7 @@ print(sorted(programming_languages, reverse=True))
 
 ---
 
-## 🔄 Loops in Python
+## Loops in Python
 
 **Simple definition:** A loop repeats a block of code, either a set number of times or until a condition changes.
 
@@ -297,7 +297,7 @@ print('You got it!')
 
 ---
 
-## ⏭️ break, continue & loop-else
+## break, continue & loop-else
 
 **Simple definition:**
 - `break` = stop the loop entirely, right now
@@ -341,7 +341,7 @@ for word in words:
 
 ---
 
-## 🔢 The range() Function
+## The range() Function
 
 **Simple definition:** `range()` generates a sequence of numbers — commonly used to control how many times a loop runs.
 
@@ -367,7 +367,7 @@ for num in range(40, 0, -10):
 # 40, 30, 20, 10   → negative step counts down
 ```
 
-> ⚠️ `range()` only works with integers — passing a float raises a `TypeError`. And calling `range()` with no arguments raises one too.
+> `range()` only works with integers — passing a float raises a `TypeError`. And calling `range()` with no arguments raises one too.
 
 **Turning a range into a list:**
 ```python
@@ -377,7 +377,7 @@ print(numbers)  # [2, 4, 6, 8, 10]
 
 ---
 
-## 🔗 enumerate() & zip()
+## enumerate() & zip()
 
 ### enumerate() — "Give me the index AND the item"
 **Analogy:** `enumerate()` is like numbering the runners in a race as they cross the finish line — you get both their position *and* who they are, together.
@@ -419,7 +419,7 @@ for name, id in zip(developers, ids):
 
 ---
 
-## ⚡ List Comprehensions
+## List Comprehensions
 
 **Simple definition:** A one-line shortcut for building a new list by looping and (optionally) filtering, all in a single readable expression.
 
@@ -439,7 +439,7 @@ print(even_numbers)  # [0, 2, 4, 6, ..., 20]
 
 ---
 
-## 🧮 filter(), map() & sum()
+## filter(), map() & sum()
 
 ### filter() — "Keep only what passes the test"
 **Analogy:** `filter()` is like a sieve — you pour everything in, and only the pieces that fit your criteria make it through.
@@ -479,7 +479,7 @@ print(sum(numbers, start=10))   # 60 → keyword (same result, clearer intent)
 
 ---
 
-## 🎯 Lambda Functions
+## Lambda Functions
 
 **Simple definition:** A lambda is a small, throwaway function written in a single line — it has no name of its own.
 
@@ -498,13 +498,13 @@ even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
 print(even_numbers)  # [2, 4]
 ```
 
-> 💡 **Best practice:** Keep lambdas short and simple, use them for quick one-off jobs (often passed straight into `filter()`, `map()`, or `sorted()`), and avoid assigning them to a variable — if it needs a name, just write a regular function instead.
+> **Best practice:** Keep lambdas short and simple, use them for quick one-off jobs (often passed straight into `filter()`, `map()`, or `sorted()`), and avoid assigning them to a variable — if it needs a name, just write a regular function instead.
 
 ---
 
-## 🎉 Nice Work!
+## Nice Work!
 
-You've now got the full toolkit for handling collections of data — lists, tuples, loops, and the shortcuts (`enumerate`, `zip`, comprehensions, `filter`/`map`) that experienced Python developers reach for daily. These patterns show up constantly in real-world code, so the more you practice them, the more automatic they'll become. 🚀
+You've now got the full toolkit for handling collections of data — lists, tuples, loops, and the shortcuts (`enumerate`, `zip`, comprehensions, `filter`/`map`) that experienced Python developers reach for daily. These patterns show up constantly in real-world code, so the more you practice them, the more automatic they'll become.
 
 ---
 *Notes compiled and designed by [@x_mxolisi_x](https://instagram.com/x_mxolisi_x)*

@@ -1,10 +1,10 @@
-# 🌳 Graphs & Trees — The Beginner-Friendly Guide
+# Graphs & Trees — The Beginner-Friendly Guide
 
 > Networks, hierarchies, priority-based queues, and the specialized structures that power everything from GPS routing to autocomplete.
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 1. [Graphs Overview](#-graphs-overview)
 2. [Graph Traversals](#-graph-traversals)
@@ -18,7 +18,7 @@
 
 ---
 
-## 🕸️ Graphs Overview
+## Graphs Overview
 
 **Simple definition:** A graph is a set of nodes (also called vertices) connected by edges — together they form a network where nodes can link to multiple other nodes.
 
@@ -40,7 +40,7 @@
 
 ---
 
-## 🚶 Graph Traversals
+## Graph Traversals
 
 **Simple definition:** Traversal means visiting every node in a graph in some systematic order.
 
@@ -68,7 +68,7 @@
 
 ---
 
-## 🗂️ Graph Representations
+## Graph Representations
 
 **Analogy:** Think of these as two different ways to keep a friend list — a personal contact list per person (adjacency list) versus one giant "who knows who" spreadsheet with everyone listed against everyone else (adjacency matrix).
 
@@ -84,7 +84,7 @@
 
 ---
 
-## 🌲 Trees
+## Trees
 
 **Simple definition:** A tree is a special kind of graph that is both **acyclic** (no loops) and **connected** (every node is reachable from every other node).
 
@@ -96,7 +96,7 @@
 
 ---
 
-## 🌿 Binary Trees & Binary Search Trees
+## Binary Trees & Binary Search Trees
 
 ### Binary Trees
 **Simple definition:** A tree where each node has **at most two children** — commonly called the "left" and "right" child.
@@ -110,7 +110,7 @@
 
 ---
 
-## 🔤 Tries
+## Tries
 
 **Simple definition:** A trie (also called a "prefix tree") is a tree structure specialized for storing strings, where each node represents a single character — and shared prefixes are stored only once.
 
@@ -122,7 +122,7 @@
 
 ---
 
-## 🎫 Priority Queues
+## Priority Queues
 
 **Simple definition:** A priority queue is an abstract data type where each element carries a **priority** — and elements with higher priority get served first, no matter when they were added.
 
@@ -136,7 +136,7 @@
 
 ---
 
-## 🏔️ Heaps
+## Heaps
 
 **Simple definition:** A heap is a specialized tree-based structure that keeps a strict ordering rule (the "heap property") between each parent node and its children — commonly used to power priority queues.
 
@@ -151,7 +151,7 @@
 
 ---
 
-## 🐍 Python's heapq Module
+## Python's heapq Module
 
 **Simple definition:** Python's built-in `heapq` module implements a **min-heap** using a regular list — giving you fast access to the smallest item at all times.
 
@@ -192,13 +192,13 @@ heapq.heappush(my_heap, (1, "C"))
 print(heapq.heappop(my_heap))  # (1, "C")
 ```
 
-> 💡 In this pattern, a **lower number = higher priority** — so if you want "priority 1" to genuinely mean "most urgent," this convention lines up perfectly with how `heapq` naturally pops the smallest value first.
+> In this pattern, a **lower number = higher priority** — so if you want "priority 1" to genuinely mean "most urgent," this convention lines up perfectly with how `heapq` naturally pops the smallest value first.
 
 ---
 
-## 🎉 Excellent Work!
+## Excellent Work!
 
-You've now covered some of the most powerful (and interview-favorite!) data structures in computer science — graphs for networks, trees for hierarchies, tries for string efficiency, and heaps for priority-based processing. These structures show up everywhere from GPS routing to task schedulers to search engines. 🚀
+You've now covered some of the most powerful (and interview-favorite!) data structures in computer science — graphs for networks, trees for hierarchies, tries for string efficiency, and heaps for priority-based processing. These structures show up everywhere from GPS routing to task schedulers to search engines. 
 
 ---
 *Notes compiled and designed by [@x_mxolisi_x](https://instagram.com/x_mxolisi_x)*

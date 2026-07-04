@@ -1,10 +1,10 @@
-# 🗂️ Dictionaries & Sets — The Beginner-Friendly Guide
+# Dictionaries & Sets — The Beginner-Friendly Guide
 
 > Key-value storage, unique collections, and how to borrow code from Python's own toolbox.
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 1. [Dictionaries](#-dictionaries)
 2. [Common Dictionary Methods](#-common-dictionary-methods)
@@ -18,7 +18,7 @@
 
 ---
 
-## 🗂️ Dictionaries
+## Dictionaries
 
 **Simple definition:** A dictionary stores data as **key-value pairs** — instead of finding an item by its position (like a list), you find it by its label.
 
@@ -31,7 +31,7 @@ dictionary = {
 }
 ```
 
-> 💡 Keys must be **immutable** (strings, numbers, tuples) — you can't use a list as a key, since it could change later and break the lookup.
+> Keys must be **immutable** (strings, numbers, tuples) — you can't use a list as a key, since it could change later and break the lookup.
 
 ### Creating Dictionaries Two Ways
 ```python
@@ -59,7 +59,7 @@ print(pizza['name'])  # Margherita Pizza → bracket notation
 
 ---
 
-## 🔧 Common Dictionary Methods
+## Common Dictionary Methods
 
 ### `.get()` — the safer way to look things up
 **Simple definition:** Works like bracket notation, but lets you set a fallback value instead of crashing if the key doesn't exist.
@@ -86,7 +86,7 @@ pizza.values()  # dict_values(['Margherita Pizza', 8.9, 250])
 pizza.items()   # dict_items([('name', 'Margherita Pizza'), ('price', 8.9), ('calories_per_slice', 250)])
 ```
 
-> 💡 These return "view objects" — think of them as a live window into the dictionary's current contents, rather than a separate copy.
+> These return "view objects" — think of them as a live window into the dictionary's current contents, rather than a separate copy.
 
 ### Removing & Updating Items
 
@@ -101,7 +101,7 @@ pizza.items()   # dict_items([('name', 'Margherita Pizza'), ('price', 8.9), ('ca
 pizza = {'name': 'Margherita Pizza', 'price': 8.9}
 
 pizza.pop('price', 10)      # removes 'price', returns 8.9
-pizza.pop('total_price')    # ⚠️ KeyError — key doesn't exist, and no default given
+pizza.pop('total_price')    # KeyError — key doesn't exist, and no default given
 
 # update() overwrites shared keys and adds new ones
 pizza.update({'price': 15, 'total_time': 25})
@@ -109,7 +109,7 @@ pizza.update({'price': 15, 'total_time': 25})
 
 ---
 
-## 🔁 Looping Over a Dictionary
+## Looping Over a Dictionary
 
 **Analogy:** Looping over a dictionary is like flipping through a filing cabinet — you can choose to look at just the folder labels (keys), just the contents (values), or both together (items).
 
@@ -163,7 +163,7 @@ for index, product in enumerate(products.items(), 1):
 
 ---
 
-## 🎯 Sets
+## Sets
 
 **Simple definition:** A set is an unordered collection that automatically removes duplicates — every item in it is guaranteed unique.
 
@@ -173,17 +173,17 @@ for index, product in enumerate(products.items(), 1):
 my_set = {1, 2, 3, 4, 5}
 ```
 
-> ⚠️ Sets can only hold **immutable** items (numbers, strings, tuples) — no lists or dictionaries inside a set.
+> Sets can only hold **immutable** items (numbers, strings, tuples) — no lists or dictionaries inside a set.
 
 ### Creating an Empty Set
 ```python
-empty_set = set()   # ✅ this is a set
-empty_dict = {}      # ⚠️ this is actually a DICTIONARY, not a set!
+empty_set = set()   # this is a set
+empty_dict = {}      # this is actually a DICTIONARY, not a set!
 ```
 
 ---
 
-## 🔧 Common Set Methods
+## Common Set Methods
 
 | Method | What it does | Example |
 |---|---|---|
@@ -192,11 +192,11 @@ empty_dict = {}      # ⚠️ this is actually a DICTIONARY, not a set!
 | `.discard(x)` | Removes an item — **stays silent** if missing | `my_set.discard(4)` |
 | `.clear()` | Empties the set | `my_set.clear()` |
 
-> 💡 **`remove()` vs `discard()`:** Use `discard()` when you're not sure the item exists and don't want your program to crash over it.
+> **`remove()` vs `discard()`:** Use `discard()` when you're not sure the item exists and don't want your program to crash over it.
 
 ---
 
-## ➕ Mathematical Set Operations
+## Mathematical Set Operations
 
 **Analogy:** Think of two overlapping circles in a Venn diagram — these operators let you grab exactly the slice you need (just the overlap, everything combined, or everything except the overlap).
 
@@ -231,7 +231,7 @@ print(5 in my_set)  # True
 
 ---
 
-## 📚 Python Standard Library
+## Python Standard Library
 
 **Simple definition:** A huge collection of pre-written, ready-to-use code (functions, classes, tools) that ships with Python — no extra installation needed.
 
@@ -245,7 +245,7 @@ Popular built-in modules include:
 
 ---
 
-## 📥 Import Statements
+## Import Statements
 
 **Simple definition:** An `import` statement lets you pull in code from a module so you can use it in your own script.
 
@@ -278,7 +278,7 @@ print(sin(angle_radians))  # 0.6427876096865393
 print(cos(angle_radians))  # 0.766044443118978
 ```
 
-> ⚠️ This can cause naming conflicts if you already have a variable or function with the same name — use it thoughtfully.
+> This can cause naming conflicts if you already have a variable or function with the same name — use it thoughtfully.
 
 You can also alias specific imports:
 ```python
@@ -292,11 +292,11 @@ from math import *
 print(sqrt(36))  # 6.0 → no "math." prefix needed
 ```
 
-> ⚠️ **Generally discouraged** — it's hard to tell where a function came from, and it risks silently overwriting names you already have.
+> **Generally discouraged** — it's hard to tell where a function came from, and it risks silently overwriting names you already have.
 
 ---
 
-## 🚪 if \_\_name\_\_ == '\_\_main\_\_'
+## if \_\_name\_\_ == '\_\_main\_\_'
 
 **Simple definition:** `__name__` is a special variable Python sets automatically. It equals `"__main__"` when a file is run directly, but equals the module's name when that file is *imported* into another script.
 
@@ -313,9 +313,9 @@ This pattern is everywhere in real Python projects — it's how a file can be *b
 
 ---
 
-## 🎉 Well Done!
+## Well Done!
 
-You've now got two more powerful data structures in your toolkit — dictionaries for labeled data, and sets for guaranteed-unique collections — plus the mechanics of borrowing code via imports. These show up constantly in real projects, from config files to data processing pipelines. Keep building! 🚀
+You've now got two more powerful data structures in your toolkit — dictionaries for labeled data, and sets for guaranteed-unique collections — plus the mechanics of borrowing code via imports. These show up constantly in real projects, from config files to data processing pipelines. Keep building! 
 
 ---
 *Notes compiled and designed by [@x_mxolisi_x](https://instagram.com/x_mxolisi_x)*

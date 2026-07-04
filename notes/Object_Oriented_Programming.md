@@ -1,10 +1,10 @@
-# 🏛️ Object-Oriented Programming — The Beginner-Friendly Guide
+# Object-Oriented Programming — The Beginner-Friendly Guide
 
 > The four pillars of OOP — encapsulation, inheritance, polymorphism, and abstraction — explained without the jargon overload.
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 1. [What is Object-Oriented Programming?](#-what-is-object-oriented-programming)
 2. [Encapsulation](#-encapsulation)
@@ -16,21 +16,21 @@
 
 ---
 
-## 🏗️ What is Object-Oriented Programming?
+## What is Object-Oriented Programming?
 
 **Simple definition:** OOP is a style of programming where you model your code around real-world "objects" — things with data (attributes) and behavior (methods) — rather than just a long list of instructions.
 
 **Analogy:** Instead of writing one giant recipe for an entire restaurant, OOP is like designing individual staff roles — a chef object, a waiter object, a cashier object — each with their own responsibilities and information, all working together.
 
 The four pillars of OOP:
-- 🔒 **Encapsulation** — bundling and protecting data
-- 🧬 **Inheritance** — reusing code across related classes
-- 🎭 **Polymorphism** — same method name, different behavior per class
-- 🎨 **Abstraction** — hiding complexity, showing only what's needed
+- **Encapsulation** — bundling and protecting data
+- **Inheritance** — reusing code across related classes
+- **Polymorphism** — same method name, different behavior per class
+- **Abstraction** — hiding complexity, showing only what's needed
 
 ---
 
-## 🔒 Encapsulation
+## Encapsulation
 
 **Simple definition:** Encapsulation means bundling data and the methods that operate on it together, while hiding the internal details from outside interference.
 
@@ -54,18 +54,18 @@ print(account.__balance)
 # AttributeError: 'Wallet' object has no attribute '__balance'
 ```
 
-> 💡 Even though it's "private," the balance can still be changed safely — just only through the `deposit()` and `withdraw()` doors, which enforce sensible rules (like never allowing a negative balance).
+> Even though it's "private," the balance can still be changed safely — just only through the `deposit()` and `withdraw()` doors, which enforce sensible rules (like never allowing a negative balance).
 
 ### Single Underscore vs Double Underscore
 
 | Prefix | Meaning | Enforced? |
 |---|---|---|
-| `_attribute` | "Internal use, please don't touch" | ❌ Just a convention — nothing stops you |
-| `__attribute` | Actively hidden from outside access | ✅ Python blocks direct outside access |
+| `_attribute` | "Internal use, please don't touch" | Just a convention — nothing stops you |
+| `__attribute` | Actively hidden from outside access | Python blocks direct outside access |
 
 ---
 
-## 🎚️ Getters, Setters & Properties
+## Getters, Setters & Properties
 
 **Simple definition:** Getters retrieve a value, setters assign one — and **properties** let you do both while still using simple dot notation (no parentheses), plus run extra validation behind the scenes.
 
@@ -114,7 +114,7 @@ my_circle.radius = 8  # this LOOKS like a plain assignment, but the setter runs 
 print('After modifying the radius:', my_circle.radius)  # After modifying the radius: 8
 ```
 
-> ⚠️ **Common trap:** Inside the setter, never write `self.radius = value` — that would call the setter *again*, forever, causing a `RecursionError`. Always store the real value under a different name (like `self._radius`).
+> **Common trap:** Inside the setter, never write `self.radius = value` — that would call the setter *again*, forever, causing a `RecursionError`. Always store the real value under a different name (like `self._radius`).
 
 ### Deleters
 ```python
@@ -131,7 +131,7 @@ class Circle:
 
 ---
 
-## 🧬 Inheritance
+## Inheritance
 
 **Simple definition:** Inheritance lets a "child" class automatically pick up the attributes and methods of a "parent" class — so you don't have to rewrite shared logic from scratch.
 
@@ -170,7 +170,7 @@ class GrandChild(Parent, OtherParent):
 
 ---
 
-## 🎭 Polymorphism
+## Polymorphism
 
 **Simple definition:** Polymorphism means different classes can share the same method name, but each class implements that method in its own way.
 
@@ -198,7 +198,7 @@ for obj in [A(), B(), C()]:
 
 ---
 
-## 🏷️ Name Mangling
+## Name Mangling
 
 **Simple definition:** When you prefix an attribute with a double underscore, Python secretly renames it behind the scenes — turning `__data` into `_ClassName__data` — to avoid accidental clashes between parent and child classes.
 
@@ -223,7 +223,7 @@ Notice both `__data` attributes survive separately — name mangling silently pr
 
 ---
 
-## 🎨 Abstraction
+## Abstraction
 
 **Simple definition:** Abstraction means hiding complex implementation details and exposing only the essential parts someone actually needs to interact with.
 
@@ -252,13 +252,13 @@ class ConcreteClassTwo(AbstractClass):
         print('Implementation in ConcreteClassTwo')
 ```
 
-> 💡 Trying to create `AbstractClass()` directly would raise a `TypeError` — it exists purely to enforce that any subclass built from it *must* implement `abstract_method()`, guaranteeing a consistent interface across all subclasses.
+> Trying to create `AbstractClass()` directly would raise a `TypeError` — it exists purely to enforce that any subclass built from it *must* implement `abstract_method()`, guaranteeing a consistent interface across all subclasses.
 
 ---
 
-## 🎉 You've Got the Full Picture!
+## You've Got the Full Picture!
 
-You've now covered all four pillars of Object-Oriented Programming — encapsulation to protect data, inheritance to reuse code, polymorphism to share method names flexibly, and abstraction to hide complexity behind clean interfaces. Together, these concepts are what let large, real-world codebases stay organized and maintainable instead of collapsing into spaghetti code. This is genuinely advanced-beginner territory — nice work getting here! 🚀
+You've now covered all four pillars of Object-Oriented Programming — encapsulation to protect data, inheritance to reuse code, polymorphism to share method names flexibly, and abstraction to hide complexity behind clean interfaces. Together, these concepts are what let large, real-world codebases stay organized and maintainable instead of collapsing into spaghetti code. This is genuinely advanced-beginner territory — nice work getting here! 
 
 ---
 *Notes compiled and designed by [@x_mxolisi_x](https://instagram.com/x_mxolisi_x)*

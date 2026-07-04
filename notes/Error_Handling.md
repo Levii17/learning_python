@@ -1,10 +1,10 @@
-# 🚨 Error Handling — The Beginner-Friendly Guide
+# Error Handling — The Beginner-Friendly Guide
 
 > How to read Python's error messages, hunt down bugs, and build code that fails gracefully instead of crashing.
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 1. [Common Errors in Python](#-common-errors-in-python)
 2. [Good Debugging Techniques](#-good-debugging-techniques)
@@ -17,7 +17,7 @@
 
 ---
 
-## ❗ Common Errors in Python
+## Common Errors in Python
 
 **Simple definition:** An error message is Python's way of telling you — often quite precisely — exactly what went wrong and where.
 
@@ -33,7 +33,7 @@
 
 ```python
 # SyntaxError — missing closing parenthesis
-print("Hello, world!"
+print("Hello, world!")
 # SyntaxError: unexpected EOF while parsing
 ```
 
@@ -63,11 +63,11 @@ num.append(5)
 # AttributeError: 'int' object has no attribute 'append'
 ```
 
-> 💡 **Golden rule of debugging:** Read the full error message before guessing. Python almost always tells you the error *type*, the *file and line number*, and often the *exact reason* — that's your map straight to the bug.
+> **Golden rule of debugging:** Read the full error message before guessing. Python almost always tells you the error *type*, the *file and line number*, and often the *exact reason* — that's your map straight to the bug.
 
 ---
 
-## 🔍 Good Debugging Techniques
+## Good Debugging Techniques
 
 **Simple definition:** Debugging is the process of tracking down why your code isn't doing what you expect, and fixing it.
 
@@ -127,11 +127,11 @@ Quick walkthrough in VS Code:
    - **Step Into (F11)** — dive into a function call
    - **Step Out (Shift+F11)** — exit the current function
 
-> 💡 **Which one should I use?** `print()` for a fast check, `pdb` for interactive terminal-based exploration, and IDE tools when you want a full visual picture — all three are worth knowing.
+> **Which one should I use?** `print()` for a fast check, `pdb` for interactive terminal-based exploration, and IDE tools when you want a full visual picture — all three are worth knowing.
 
 ---
 
-## 🛡️ Exception Handling: try / except / else / finally
+## Exception Handling: try / except / else / finally
 
 **Simple definition:** Exception handling lets you anticipate that something *might* go wrong, and decide exactly how your program should respond instead of crashing.
 
@@ -177,11 +177,11 @@ finally:
     print('Execution complete!')          # ALWAYS runs, error or not
 ```
 
-> 💡 **When to use `finally`:** Perfect for cleanup work — closing files, releasing network connections, etc. — things that must happen no matter what.
+> **When to use `finally`:** Perfect for cleanup work — closing files, releasing network connections, etc. — things that must happen no matter what.
 
 ---
 
-## 🏷️ The Exception Object
+## The Exception Object
 
 **Simple definition:** Using `as` lets you capture the actual exception object, so you can inspect or print its specific error message.
 
@@ -197,7 +197,7 @@ except ValueError as e:
 
 ---
 
-## 📢 The raise Statement
+## The raise Statement
 
 **Simple definition:** `raise` lets you manually trigger an exception yourself — useful for enforcing rules or flagging invalid input before it causes bigger problems.
 
@@ -235,7 +235,7 @@ except ValueError:
 
 ---
 
-## 🏗️ Custom Exceptions
+## Custom Exceptions
 
 **Simple definition:** You can design your own exception types by creating a class that inherits from `Exception` — useful when the built-in error types don't describe your specific problem clearly enough.
 
@@ -284,11 +284,11 @@ else:
     print(message)  # only runs if login succeeded
 ```
 
-> 💡 Don't worry if `class` and `__init__` look unfamiliar — you'll cover classes and inheritance in more depth soon. For now, just know this is how custom exceptions get built.
+> Don't worry if `class` and `__init__` look unfamiliar — you'll cover classes and inheritance in more depth soon. For now, just know this is how custom exceptions get built.
 
 ---
 
-## 🔗 Chaining Exceptions with raise ... from
+## Chaining Exceptions with raise ... from
 
 **Simple definition:** `raise ... from` lets you connect a new exception to the original one that caused it — either hiding the original (`from None`) or preserving the full trail (`from e`).
 
@@ -313,7 +313,7 @@ config = parse_config('config.txt')
 
 ---
 
-## ✅ assert Statements
+## assert Statements
 
 **Simple definition:** `assert` is a shorthand way to raise an `AssertionError` if a condition turns out to be `False` — a quick sanity check embedded directly in your code.
 
@@ -331,13 +331,13 @@ except AssertionError as e:
     # Assertion failed: Cannot calculate square root of negative number
 ```
 
-> 💡 `assert` is best for catching programming mistakes and invariants during development — not for validating user input in production code (asserts can be stripped out under certain optimization settings).
+> `assert` is best for catching programming mistakes and invariants during development — not for validating user input in production code (asserts can be stripped out under certain optimization settings).
 
 ---
 
-## 🎉 Nicely Done!
+## Nicely Done!
 
-You now know how to read Python's error messages instead of fearing them, debug methodically instead of guessing, and build programs that handle failure gracefully with `try`/`except`/`else`/`finally`, custom exceptions, and `raise`. This is one of the biggest signals of a maturing developer — bugs stop being scary and start being solvable. 🚀
+You now know how to read Python's error messages instead of fearing them, debug methodically instead of guessing, and build programs that handle failure gracefully with `try`/`except`/`else`/`finally`, custom exceptions, and `raise`. This is one of the biggest signals of a maturing developer — bugs stop being scary and start being solvable.
 
 ---
 *Notes compiled and designed by [@x_mxolisi_x](https://instagram.com/x_mxolisi_x)*

@@ -1,10 +1,10 @@
-# 🏗️ Classes & Objects — The Beginner-Friendly Guide
+# Classes & Objects — The Beginner-Friendly Guide
 
 > The building blocks of Object-Oriented Programming — blueprints, instances, and the "magic" methods that power Python's built-in behaviors.
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 1. [Class Definitions](#-class-definitions)
 2. [Creating Objects](#-creating-objects)
@@ -16,7 +16,7 @@
 
 ---
 
-## 🧩 Class Definitions
+## Class Definitions
 
 **Simple definition:** A class is a blueprint that describes what an object should look like and what it can do — its data (attributes) and its behavior (methods).
 
@@ -32,11 +32,11 @@ class Dog:
         print(f'{self.name.upper()} says woof woof!')
 ```
 
-> 💡 `__init__` is the **constructor** — think of it as the setup instructions that run the moment a new object is stamped out from the blueprint. `self` refers to "this specific object," so every dog keeps its own name and age separate from every other dog.
+> `__init__` is the **constructor** — think of it as the setup instructions that run the moment a new object is stamped out from the blueprint. `self` refers to "this specific object," so every dog keeps its own name and age separate from every other dog.
 
 ---
 
-## 🐾 Creating Objects
+## Creating Objects
 
 **Simple definition:** An object is a real, individual instance created from a class — with its own actual data.
 
@@ -58,7 +58,7 @@ object_name2.method_name()
 
 ---
 
-## 🆚 Class vs Object
+## Class vs Object
 
 **Simple definition:**
 - **Class** = the reusable template/design
@@ -72,7 +72,7 @@ object_name2.method_name()
 
 ---
 
-## 🏷️ Attributes: Instance vs Class
+## Attributes: Instance vs Class
 
 **Simple definition:**
 - **Instance attributes** — unique data belonging to *one specific* object, set up in `__init__` using `self`
@@ -96,7 +96,7 @@ print(jack.species)  # French Bulldog → inherited from the class
 
 ---
 
-## ⚙️ Methods
+## Methods
 
 **Simple definition:** A method is just a function that lives inside a class and operates on that object's own data.
 
@@ -128,7 +128,7 @@ print(my_car_2.describe())  # This car is a green Lamborghini Revuelto
 
 ---
 
-## ✨ Dunder (Magic) Methods
+## Dunder (Magic) Methods
 
 **Simple definition:** Special methods surrounded by double underscores (like `__init__`, `__len__`, `__str__`) that Python calls automatically behind the scenes for built-in operations — you rarely call them directly yourself.
 
@@ -164,11 +164,11 @@ print(str(book1))  # 'Built Wealth Like a Boss' has 420 pages → Python calls _
 | **Comparisons** | `==`, `<`, `>` | `__eq__`, `__lt__`, `__gt__` |
 | **Iteration** | Looping over an object | `__iter__`, `__next__` |
 
-> 💡 You never write `book1.__len__()` directly — you just write the natural Python expression (`len(book1)`), and the dunder method fires automatically underneath.
+> You never write `book1.__len__()` directly — you just write the natural Python expression (`len(book1)`), and the dunder method fires automatically underneath.
 
 ---
 
-## 🛒 Real-World Example: Shopping Cart
+## Real-World Example: Shopping Cart
 
 Let's combine everything into a practical, fully working class — a shopping cart that behaves like Python's built-in collections thanks to a handful of dunder methods.
 
@@ -216,9 +216,9 @@ print('Laptop' in cart) # True   → thanks to __contains__
 
 ---
 
-## 🎉 Great Work!
+## Great Work!
 
-You've just covered the foundation of Object-Oriented Programming in Python — the exact toolkit used to model real-world things in code, from users and products to game characters and bank accounts. Dunder methods in particular are what let your own custom classes feel just as natural to use as Python's built-in types. Keep experimenting — try building a class of your own! 🚀
+You've just covered the foundation of Object-Oriented Programming in Python — the exact toolkit used to model real-world things in code, from users and products to game characters and bank accounts. Dunder methods in particular are what let your own custom classes feel just as natural to use as Python's built-in types. Keep experimenting — try building a class of your own! 
 
 ---
 *Notes compiled and designed by [@x_mxolisi_x](https://instagram.com/x_mxolisi_x)*

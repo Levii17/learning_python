@@ -1,10 +1,10 @@
-# 🔍 Searching & Sorting Algorithms — The Beginner-Friendly Guide
+# Searching & Sorting Algorithms — The Beginner-Friendly Guide
 
 > Two searching strategies and one powerful sorting technique — with the "why" behind their efficiency.
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 1. [Linear Search](#-linear-search)
 2. [Binary Search](#-binary-search)
@@ -14,7 +14,7 @@
 
 ---
 
-## 🚶 Linear Search
+## Linear Search
 
 **Simple definition:** Linear search checks every item in a list, one at a time from the very start, until it finds the target — or runs out of items to check.
 
@@ -35,7 +35,7 @@ linear_search(numbers, 9)  # 3  → 9 is at index 3
 linear_search(numbers, 5)  # -1 → 5 isn't in the list at all
 ```
 
-> 💡 **Why -1?** It's not a valid index in most languages, so it works as a clear "not found" signal that could never be confused with a real position in the list.
+> **Why -1?** It's not a valid index in most languages, so it works as a clear "not found" signal that could never be confused with a real position in the list.
 
 **Complexity:**
 - **Time:** `O(n)` — worst case, you check every single item once
@@ -43,13 +43,13 @@ linear_search(numbers, 5)  # -1 → 5 isn't in the list at all
 
 ---
 
-## ✂️ Binary Search
+## Binary Search
 
 **Simple definition:** Binary search repeatedly cuts a **sorted** list in half, checking the middle item and eliminating the half that can't contain the target — dramatically reducing how many items you need to check.
 
 **Analogy:** Binary search is like looking up a name in a *paper* phone book the smart way — you flip open to the middle, see whether your name comes before or after that point alphabetically, then throw away the half you don't need and repeat. You'd never need to read every single page.
 
-> ⚠️ **The catch:** Binary search only works on a list that's already **sorted**. If your data isn't sorted, binary search's "which half do I ignore?" logic falls apart.
+> **The catch:** Binary search only works on a list that's already **sorted**. If your data isn't sorted, binary search's "which half do I ignore?" logic falls apart.
 
 ```python
 def binary_search(arr, target):
@@ -83,20 +83,20 @@ def binary_search(arr, target):
 
 ---
 
-## ⚖️ Linear Search vs Binary Search
+## Linear Search vs Binary Search
 
 | | Linear Search | Binary Search |
 |---|---|---|
-| **Requires sorted data?** | ❌ No | ✅ Yes |
+| **Requires sorted data?** | No | Yes |
 | **Time Complexity** | `O(n)` | `O(log n)` |
 | **Space Complexity** | `O(1)` | `O(1)` |
 | **Best for** | Small or unsorted lists | Large, sorted lists |
 
-> 💡 **Rule of thumb:** If your data is already sorted and might be large, binary search will vastly outperform linear search as the list grows. If your data isn't sorted (and sorting it isn't worth the cost for a one-off search), linear search is simpler and gets the job done.
+> **Rule of thumb:** If your data is already sorted and might be large, binary search will vastly outperform linear search as the list grows. If your data isn't sorted (and sorting it isn't worth the cost for a one-off search), linear search is simpler and gets the job done.
 
 ---
 
-## 🪓 Divide and Conquer
+## Divide and Conquer
 
 **Simple definition:** Divide and conquer is a strategy for solving a big problem by breaking it into smaller, more manageable sub-problems, solving each one, then combining the results.
 
@@ -106,7 +106,7 @@ def binary_search(arr, target):
 
 ---
 
-## 🔀 Merge Sort
+## Merge Sort
 
 **Simple definition:** Merge sort is a sorting algorithm that recursively splits a list in half until each piece has just one element, then merges those pieces back together in sorted order.
 
@@ -177,9 +177,9 @@ def merge_sort(arr):
 
 ---
 
-## 🎉 Great Progress!
+## Great Progress!
 
-You now understand two fundamentally different ways to search data, plus the divide-and-conquer thinking that powers some of the most efficient sorting algorithms out there. These concepts show up constantly — not just in interviews, but any time you're deciding how to structure and search through real data efficiently. 🚀
+You now understand two fundamentally different ways to search data, plus the divide-and-conquer thinking that powers some of the most efficient sorting algorithms out there. These concepts show up constantly — not just in interviews, but any time you're deciding how to structure and search through real data efficiently. 
 
 ---
 *Notes compiled and designed by [@x_mxolisi_x](https://instagram.com/x_mxolisi_x)*

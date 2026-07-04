@@ -1,10 +1,10 @@
-# 💻 Installing Python — The Beginner-Friendly Guide
+# Installing Python — The Beginner-Friendly Guide
 
 > Everything you need to get Python running on your own machine, explained simply.
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 1. [Installing Python](#-installing-python)
 2. [What is a Terminal?](#-what-is-a-terminal)
@@ -16,7 +16,7 @@
 
 ---
 
-## ⬇️ Installing Python
+## Installing Python
 
 **Simple definition:** Installing Python means downloading the official Python program onto your computer so it can understand and run `.py` files.
 
@@ -28,7 +28,7 @@
 - Click the button showing the current version for your OS (Windows, Mac, or Linux)
 - Run the installer and follow the prompts
 
-> 💡 **Windows users:** During install, make sure to check **"Add python.exe to PATH"** — this saves you a headache later, since it lets you run `python` from any folder in your terminal.
+> **Windows users:** During install, make sure to check **"Add python.exe to PATH"** — this saves you a headache later, since it lets you run `python` from any folder in your terminal.
 
 **Verify it worked** by opening your terminal and typing:
 
@@ -38,13 +38,13 @@ python --version
 python3 --version
 ```
 
-If you see something like `Python 3.12.2`, you're good to go! 🎉
+If you see something like `Python 3.12.2`, you're good to go!
 
-> ⚠️ **Heads up:** On some older Mac/Linux systems, `python` might point to the outdated Python 2 (end-of-life, don't use it for new projects). If `python --version` shows `Python 2.x.x`, just use `python3` instead going forward.
+> **Heads up:** On some older Mac/Linux systems, `python` might point to the outdated Python 2 (end-of-life, don't use it for new projects). If `python --version` shows `Python 2.x.x`, just use `python3` instead going forward.
 
 ---
 
-## 🖥️ What is a Terminal?
+## What is a Terminal?
 
 **Simple definition:** A terminal is a text-based way to talk to your computer — instead of clicking icons, you type commands.
 
@@ -58,7 +58,7 @@ If you see something like `Python 3.12.2`, you're good to go! 🎉
 
 ---
 
-## 🧰 What is an IDE?
+## What is an IDE?
 
 **Simple definition:** IDE stands for **Integrated Development Environment** — a single app that bundles the tools you need to write, test, and run code.
 
@@ -66,7 +66,7 @@ If you see something like `Python 3.12.2`, you're good to go! 🎉
 
 ---
 
-## 🛠️ Popular Code Editors
+## Popular Code Editors
 
 Some go-to choices for Python development:
 
@@ -76,14 +76,14 @@ Some go-to choices for Python development:
 
 ---
 
-## ▶️ Running Code Locally
+## Running Code Locally
 
 **Simple definition:** "Running code locally" just means executing your Python file on your own computer, rather than in an online editor.
 
 **Analogy:** It's the difference between practicing piano on a keyboard at a music store (an online editor) versus on your own piano at home (your local machine) — same skill, but now it's set up permanently in your own space.
 
 **Option 1 — The Run button:**
-In VS Code, click the ▶️ play button in the upper-right corner. This opens a terminal automatically and runs your script.
+In VS Code, click the play button in the upper-right corner. This opens a terminal automatically and runs your script.
 
 **Option 2 — Run it manually from the terminal:**
 
@@ -95,11 +95,11 @@ cd python-projects
 python main.py
 ```
 
-> 💡 If `python main.py` doesn't work, try `python3 main.py` — common on macOS/Linux setups where both Python 2 and 3 exist.
+> If `python main.py` doesn't work, try `python3 main.py` — common on macOS/Linux setups where both Python 2 and 3 exist.
 
 ---
 
-## 🐚 The Python Interactive Shell
+## The Python Interactive Shell
 
 **Simple definition:** The interactive shell is a mode where you type one line of Python at a time and see the result immediately — no need to save a whole file first.
 
@@ -123,11 +123,11 @@ Hello, world!
 
 **To exit:** type `exit()`, or press `Ctrl + D` (Mac/Linux) / `Ctrl + Z` then `Enter` (Windows).
 
-> 💡 **When to use it:** Great for quick experiments and testing small snippets. For anything longer or multi-file, stick to a code editor.
+> **When to use it:** Great for quick experiments and testing small snippets. For anything longer or multi-file, stick to a code editor.
 
 ---
 
-## 🔁 The REPL Cycle
+## The REPL Cycle
 
 **Simple definition:** REPL stands for **Read, Evaluate, Print, Loop** — it's the exact process the interactive shell follows every time you hit Enter.
 
@@ -145,9 +145,9 @@ Even when you type something invalid, the REPL still completes its cycle — it 
 
 ---
 
-## 🎉 You're Set Up!
+## You're Set Up!
 
-You now know how to install Python, open a terminal, choose an editor, and run code both as full scripts and one line at a time. From here, every lesson you go through can (and should!) be tested on your own machine — that's where the real learning sticks. 🚀
+You now know how to install Python, open a terminal, choose an editor, and run code both as full scripts and one line at a time. From here, every lesson you go through can (and should!) be tested on your own machine — that's where the real learning sticks.
 
 ---
 *Notes compiled and designed by [@x_mxolisi_x](https://instagram.com/x_mxolisi_x)*
