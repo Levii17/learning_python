@@ -1,4 +1,4 @@
-# Error Handling , The Beginner-Friendly Guide
+# Error Handling
 
 > How to read Python's error messages, hunt down bugs, and build code that fails gracefully instead of crashing.
 

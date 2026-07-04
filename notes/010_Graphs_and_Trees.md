@@ -1,4 +1,4 @@
-# Graphs & Trees , The Beginner-Friendly Guide
+# Graphs & Trees
 
 > Networks, hierarchies, priority-based queues, and the specialized structures that power everything from GPS routing to autocomplete.
 

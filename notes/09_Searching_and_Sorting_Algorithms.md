@@ -1,4 +1,4 @@
-# Searching & Sorting Algorithms , The Beginner-Friendly Guide
+# Searching & Sorting Algorithms
 
 > Two searching strategies and one powerful sorting technique , with the "why" behind their efficiency.
 

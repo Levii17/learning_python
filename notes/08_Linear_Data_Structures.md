@@ -1,4 +1,4 @@
-# Linear Data Structures , The Beginner-Friendly Guide
+# Linear Data Structures
 
 > Algorithms, Big O notation, and the core data structures that power efficient code , arrays, stacks, queues, linked lists, hash maps, and sets.
 

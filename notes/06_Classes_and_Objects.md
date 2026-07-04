@@ -1,4 +1,4 @@
-# Classes & Objects , The Beginner-Friendly Guide
+# Classes & Objects
 
 > The building blocks of Object-Oriented Programming , blueprints, instances, and the "magic" methods that power Python's built-in behaviors.
 

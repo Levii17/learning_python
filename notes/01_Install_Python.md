@@ -1,4 +1,4 @@
-# Installing Python , The Beginner-Friendly Guide
+# Installing Python
 
 > Everything you need to get Python running on your own machine, explained simply.
 

@@ -1,4 +1,4 @@
-# Loops & Sequences , The Beginner-Friendly Guide
+# Loops & Sequences
 
 > Lists, tuples, loops, and the handy tools that make repetitive tasks effortless.
 

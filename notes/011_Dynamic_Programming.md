@@ -1,4 +1,4 @@
-# Dynamic Programming , The Beginner-Friendly Guide
+# Dynamic Programming
 
 > Turning painfully slow recursive problems into fast, efficient solutions by remembering what you've already solved.
 

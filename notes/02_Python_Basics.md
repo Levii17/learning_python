@@ -1,4 +1,4 @@
-# Python Basics , The Beginner-Friendly Guide
+# Python Basics
 
 > A scannable, analogy-packed reference for anyone learning Python from scratch. Skim it, bookmark it, come back to it.
 

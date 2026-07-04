@@ -1,4 +1,4 @@
-# Object-Oriented Programming , The Beginner-Friendly Guide
+# Object-Oriented Programming
 
 > The four pillars of OOP , encapsulation, inheritance, polymorphism, and abstraction , explained without the jargon overload.
 

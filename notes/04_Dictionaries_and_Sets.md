@@ -1,4 +1,4 @@
-# Dictionaries & Sets , The Beginner-Friendly Guide
+# Dictionaries & Sets
 
 > Key-value storage, unique collections, and how to borrow code from Python's own toolbox.
 
