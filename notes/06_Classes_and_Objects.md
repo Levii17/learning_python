@@ -6,13 +6,13 @@
 
 ## Table of Contents
 
-1. [Class Definitions](#-class-definitions)
-2. [Creating Objects](#-creating-objects)
-3. [Class vs Object](#-class-vs-object)
-4. [Attributes: Instance vs Class](#-attributes-instance-vs-class)
-5. [Methods](#-methods)
-6. [Dunder (Magic) Methods](#-dunder-magic-methods)
-7. [Real-World Example: Shopping Cart](#-real-world-example-shopping-cart)
+1. [Class Definitions](#class-definitions)
+2. [Creating Objects](#creating-objects)
+3. [Class vs Object](#class-vs-object)
+4. [Attributes: Instance vs Class](#attributes-instance-vs-class)
+5. [Methods](#methods)
+6. [Dunder (Magic) Methods](#dunder-magic-methods)
+7. [Real-World Example: Shopping Cart](#real-world-example-shopping-cart)
 
 ---
 

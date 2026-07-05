@@ -6,18 +6,18 @@
 
 ## Table of Contents
 
-1. [Algorithms & Big O Notation](#-algorithms--big-o-notation)
-2. [Common Time Complexities](#-common-time-complexities)
-3. [Space Complexity](#-space-complexity)
-4. [Problem-Solving Techniques](#-problem-solving-techniques)
-5. [Arrays](#-arrays)
-6. [Stacks](#-stacks)
-7. [Queues](#-queues)
-8. [Linked Lists](#-linked-lists)
-9. [Hash Maps](#-hash-maps)
-10. [Sets](#-sets)
-11. [Hash Collisions](#-hash-collisions)
-12. [When to Use Each Data Structure](#-when-to-use-each-data-structure)
+1. [Algorithms & Big O Notation](#algorithms--big-o-notation)
+2. [Common Time Complexities](#common-time-complexities)
+3. [Space Complexity](#space-complexity)
+4. [Problem-Solving Techniques](#problem-solving-techniques)
+5. [Arrays](#arrays)
+6. [Stacks](#stacks)
+7. [Queues](#queues)
+8. [Linked Lists](#linked-lists)
+9. [Hash Maps](#hash-maps)
+10. [Sets](#sets)
+11. [Hash Collisions](#hash-collisions)
+12. [When to Use Each Data Structure](#when-to-use-each-data-structure)
 
 ---
 

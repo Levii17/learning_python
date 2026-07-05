@@ -6,15 +6,15 @@
 
 ## Table of Contents
 
-1. [Graphs Overview](#-graphs-overview)
-2. [Graph Traversals](#-graph-traversals)
-3. [Graph Representations](#-graph-representations)
-4. [Trees](#-trees)
-5. [Binary Trees & Binary Search Trees](#-binary-trees--binary-search-trees)
-6. [Tries](#-tries)
-7. [Priority Queues](#-priority-queues)
-8. [Heaps](#-heaps)
-9. [Python's heapq Module](#-pythons-heapq-module)
+1. [Graphs Overview](#graphs-overview)
+2. [Graph Traversals](#graph-traversals)
+3. [Graph Representations](#graph-representations)
+4. [Trees](#trees)
+5. [Binary Trees & Binary Search Trees](#binary-trees--binary-search-trees)
+6. [Tries](#tries)
+7. [Priority Queues](#priority-queues)
+8. [Heaps](#heaps)
+9. [Python's heapq Module](#pythons-heapq-module)
 
 ---
 

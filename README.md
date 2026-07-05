@@ -33,7 +33,7 @@ Work completed as part of the freeCodeCamp Python curriculum.
 |---|---|
 | [`labs/`](./freecodecamp/labs) | Short, guided practice exercises |
 | [`workshops/`](./freecodecamp/workshops) | Larger, multi-part guided builds |
-| [`certification-project/`](./freecodecamp/certification-project) | The capstone project for certification |
+| [`certification-projects/`](./freecodecamp/certification-projects) | The capstone project for certification |
 
 Each project folder includes its own README explaining what it is and what it demonstrates.
 

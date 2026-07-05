@@ -6,17 +6,17 @@
 
 ## Table of Contents
 
-1. [Python Lists](#-python-lists)
-2. [List Methods](#-list-methods)
-3. [Tuples](#-tuples)
-4. [Common Tuple Methods](#-common-tuple-methods)
-5. [Loops in Python](#-loops-in-python)
-6. [break, continue & loop-else](#-break-continue--loop-else)
-7. [The range() Function](#-the-range-function)
-8. [enumerate() & zip()](#-enumerate--zip)
-9. [List Comprehensions](#-list-comprehensions)
-10. [filter(), map() & sum()](#-filter-map--sum)
-11. [Lambda Functions](#-lambda-functions)
+1. [Python Lists](#python-lists)
+2. [List Methods](#list-methods)
+3. [Tuples](#tuples)
+4. [Common Tuple Methods](#common-tuple-methods)
+5. [Loops in Python](#loops-in-python)
+6. [break, continue & loop-else](#break-continue--loop-else)
+7. [The range() Function](#the-range-function)
+8. [enumerate() & zip()](#enumerate--zip)
+9. [List Comprehensions](#list-comprehensions)
+10. [filter(), map() & sum()](#filter-map--sum)
+11. [Lambda Functions](#lambda-functions)
 
 ---
 

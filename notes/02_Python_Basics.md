@@ -6,22 +6,22 @@
 
 ## Table of Contents
 
-1. [What is Python?](#-what-is-python)
-2. [Variables](#-variables)
-3. [Comments](#-comments)
-4. [Common Data Types](#-common-data-types)
-5. [Mutable vs Immutable](#-mutable-vs-immutable)
-6. [Working with Strings](#-working-with-strings)
-7. [Common String Methods](#-common-string-methods)
-8. [Numbers: Ints & Floats](#-numbers-ints--floats)
-9. [Augmented Assignment](#-augmented-assignment)
-10. [Functions](#-functions)
-11. [Common Built-in Functions](#-common-built-in-functions)
-12. [Scope](#-scope)
-13. [Comparison Operators](#-comparison-operators)
-14. [if / elif / else](#-if--elif--else)
-15. [Truthy & Falsy Values](#-truthy--falsy-values)
-16. [Boolean Operators & Short-Circuiting](#-boolean-operators--short-circuiting)
+1. [What is Python?](#what-is-python)
+2. [Variables](#variables)
+3. [Comments](#comments)
+4. [Common Data Types](#common-data-types)
+5. [Mutable vs Immutable](#mutable-vs-immutable)
+6. [Working with Strings](#working-with-strings)
+7. [Common String Methods](#common-string-methods)
+8. [Numbers: Ints & Floats](#numbers-ints--floats)
+9. [Augmented Assignment](#augmented-assignment)
+10. [Functions](#functions)
+11. [Common Built-in Functions](#common-built-in-functions)
+12. [Scope](#scope)
+13. [Comparison Operators](#comparison-operators)
+14. [if / elif / else](#if--elif--else)
+15. [Truthy & Falsy Values](#truthy--falsy-values)
+16. [Boolean Operators & Short-Circuiting](#boolean-operators--short-circuiting)
 
 ---
 

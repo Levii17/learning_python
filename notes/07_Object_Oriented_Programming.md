@@ -6,13 +6,13 @@
 
 ## Table of Contents
 
-1. [What is Object-Oriented Programming?](#-what-is-object-oriented-programming)
-2. [Encapsulation](#-encapsulation)
-3. [Getters, Setters & Properties](#-getters-setters--properties)
-4. [Inheritance](#-inheritance)
-5. [Polymorphism](#-polymorphism)
-6. [Name Mangling](#-name-mangling)
-7. [Abstraction](#-abstraction)
+1. [What is Object-Oriented Programming?](#what-is-object-oriented-programming)
+2. [Encapsulation](#encapsulation)
+3. [Getters, Setters & Properties](#getters-setters--properties)
+4. [Inheritance](#inheritance)
+5. [Polymorphism](#polymorphism)
+6. [Name Mangling](#name-mangling)
+7. [Abstraction](#abstraction)
 
 ---
 

@@ -6,14 +6,14 @@
 
 ## Table of Contents
 
-1. [Common Errors in Python](#-common-errors-in-python)
-2. [Good Debugging Techniques](#-good-debugging-techniques)
-3. [Exception Handling: try / except / else / finally](#-exception-handling-try--except--else--finally)
-4. [The Exception Object](#-the-exception-object)
-5. [The raise Statement](#-the-raise-statement)
-6. [Custom Exceptions](#-custom-exceptions)
-7. [Chaining Exceptions with raise ... from](#-chaining-exceptions-with-raise--from)
-8. [assert Statements](#-assert-statements)
+1. [Common Errors in Python](#common-errors-in-python)
+2. [Good Debugging Techniques](#good-debugging-techniques)
+3. [Exception Handling: try / except / else / finally](#exception-handling-try--except--else--finally)
+4. [The Exception Object](#the-exception-object)
+5. [The raise Statement](#the-raise-statement)
+6. [Custom Exceptions](#custom-exceptions)
+7. [Chaining Exceptions with raise ... from](#chaining-exceptions-with-raise--from)
+8. [assert Statements](#assert-statements)
 
 ---
 

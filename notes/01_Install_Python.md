@@ -6,13 +6,13 @@
 
 ## Table of Contents
 
-1. [Installing Python](#-installing-python)
-2. [What is a Terminal?](#-what-is-a-terminal)
-3. [What is an IDE?](#-what-is-an-ide)
-4. [Popular Code Editors](#-popular-code-editors)
-5. [Running Code Locally](#-running-code-locally)
-6. [The Python Interactive Shell](#-the-python-interactive-shell)
-7. [The REPL Cycle](#-the-repl-cycle)
+1. [Installing Python](#installing-python)
+2. [What is a Terminal?](#what-is-a-terminal)
+3. [What is an IDE?](#what-is-an-ide)
+4. [Popular Code Editors](#popular-code-editors)
+5. [Running Code Locally](#running-code-locally)
+6. [The Python Interactive Shell](#the-python-interactive-shell)
+7. [The REPL Cycle](#the-repl-cycle)
 
 ---
 

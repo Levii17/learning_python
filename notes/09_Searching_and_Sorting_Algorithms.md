@@ -6,11 +6,11 @@
 
 ## Table of Contents
 
-1. [Linear Search](#-linear-search)
-2. [Binary Search](#-binary-search)
-3. [Linear Search vs Binary Search](#-linear-search-vs-binary-search)
-4. [Divide and Conquer](#-divide-and-conquer)
-5. [Merge Sort](#-merge-sort)
+1. [Linear Search](#linear-search)
+2. [Binary Search](#binary-search)
+3. [Linear Search vs Binary Search](#linear-search-vs-binary-search)
+4. [Divide and Conquer](#divide-and-conquer)
+5. [Merge Sort](#merge-sort)
 
 ---
 

@@ -6,15 +6,15 @@
 
 ## Table of Contents
 
-1. [Dictionaries](#-dictionaries)
-2. [Common Dictionary Methods](#-common-dictionary-methods)
-3. [Looping Over a Dictionary](#-looping-over-a-dictionary)
-4. [Sets](#-sets)
-5. [Common Set Methods](#-common-set-methods)
-6. [Mathematical Set Operations](#-mathematical-set-operations)
-7. [Python Standard Library](#-python-standard-library)
-8. [Import Statements](#-import-statements)
-9. [if \_\_name\_\_ == '\_\_main\_\_'](#-if-__name__--__main__)
+1. [Dictionaries](#dictionaries)
+2. [Common Dictionary Methods](#common-dictionary-methods)
+3. [Looping Over a Dictionary](#looping-over-a-dictionary)
+4. [Sets](#sets)
+5. [Common Set Methods](#common-set-methods)
+6. [Mathematical Set Operations](#mathematical-set-operations)
+7. [Python Standard Library](#python-standard-library)
+8. [Import Statements](#import-statements)
+9. [if \_\_name\_\_ == '\_\_main\_\_'](#if-__name__--__main__)
 
 ---
 

@@ -6,15 +6,15 @@
 
 ## Table of Contents
 
-1. [What is Dynamic Programming?](#-what-is-dynamic-programming)
-2. [Core Principles](#-core-principles)
-3. [The Problem with Naive Recursion](#-the-problem-with-naive-recursion)
-4. [Memoization (Top-Down)](#-memoization-top-down)
-5. [Tabulation (Bottom-Up)](#-tabulation-bottom-up)
-6. [Space-Optimized Tabulation](#-space-optimized-tabulation)
-7. [Practical Example: Coin Change Problem](#-practical-example-coin-change-problem)
-8. [Real-World Applications](#-real-world-applications)
-9. [When to Use Dynamic Programming](#-when-to-use-dynamic-programming)
+1. [What is Dynamic Programming?](#what-is-dynamic-programming)
+2. [Core Principles](#core-principles)
+3. [The Problem with Naive Recursion](#the-problem-with-naive-recursion)
+4. [Memoization (Top-Down)](#memoization-top-down)
+5. [Tabulation (Bottom-Up)](#tabulation-bottom-up)
+6. [Space-Optimized Tabulation](#space-optimized-tabulation)
+7. [Practical Example: Coin Change Problem](#practical-example-coin-change-problem)
+8. [Real-World Applications](#real-world-applications)
+9. [When to Use Dynamic Programming](#when-to-use-dynamic-programming)
 
 ---
 

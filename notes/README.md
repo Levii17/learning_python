@@ -36,8 +36,8 @@ Each file is self-contained and scannable , open any one and jump straight to th
 |---|---|---|
 | 8 | [Linear Data Structures](./08_Linear_Data_Structures.md) | Big O notation, arrays, stacks, queues, linked lists, hash maps, sets, hash collisions |
 | 9 | [Searching & Sorting Algorithms](./09_Searching_and_Sorting_Algorithms.md) | Linear search, binary search, divide-and-conquer, merge sort |
-| 10 | [Graphs & Trees](./010_Graphs_and_Trees.md) | Graphs, BFS/DFS, trees, BSTs, tries, priority queues, heaps |
-| 11 | [Dynamic Programming](./011_Dynamic_Programming.md) | Overlapping subproblems, optimal substructure, memoization, tabulation, coin change problem |
+| 10 | [Graphs & Trees](./10_Graphs_and_Trees.md) | Graphs, BFS/DFS, trees, BSTs, tries, priority queues, heaps |
+| 11 | [Dynamic Programming](./11_Dynamic_Programming.md) | Overlapping subproblems, optimal substructure, memoization, tabulation, coin change problem |
 
 ---
 
