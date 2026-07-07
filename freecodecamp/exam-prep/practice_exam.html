@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>practice_exam.py — Python Certification Mock Exam</title>
+  <style>
+    :root {
+  --bg-deep: #0F1620;
+  --bg-panel: #151E2B;
+  --bg-panel-alt: #1B2636;
+  --bg-raised: #212D40;
+  --border: rgba(255,255,255,0.08);
+  --border-soft: rgba(255,255,255,0.05);
+  --text-primary: #E7ECF2;
+  --text-muted: #8A96A8;
+  --text-faint: #5C6779;
+  --accent-blue: #5B9BD9;
+  --accent-blue-dim: #3A6D9E;
+  --accent-yellow: #FFD43B;
+  --success: #4CAF6D;
+  --success-dim: #274435;
+  --error: #E5534B;
+  --error-dim: #3F2426;
+  --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Consolas, Menlo, monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: radial-gradient(ellipse at top, #131C29 0%, var(--bg-deep) 55%);
+  color: var(--text-primary);
+  font-family: var(--sans);
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px 16px 64px;
+  line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+.window {
+  width: 100%;
+  max-width: 760px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.02);
+}
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  background: var(--bg-panel-alt);
+  border-bottom: 1px solid var(--border);
+}
+.dots { display: flex; gap: 6px; flex-shrink: 0; }
+.dot { width: 11px; height: 11px; border-radius: 50%; }
+.dot.r { background: #5A4A4A; }
+.dot.y { background: #5A5340; }
+.dot.g { background: #3F5A48; }
+.tabname {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tabname .status-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent-yellow);
+  box-shadow: 0 0 6px var(--accent-yellow);
+}
+.timer {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--text-faint);
+  letter-spacing: 0.03em;
+}
+.timer.active { color: var(--accent-yellow); }
+
+.body-shell { display: flex; }
+.gutter {
+  width: 38px;
+  flex-shrink: 0;
+  background: var(--bg-panel);
+  border-right: 1px solid var(--border-soft);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  text-align: right;
+  padding: 24px 8px 24px 0;
+  user-select: none;
+}
+.gutter div { height: 22px; }
+.content { flex: 1; min-width: 0; padding: 26px 26px 28px; }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  margin-bottom: 6px;
+}
+h1 {
+  font-family: var(--mono);
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--text-primary);
+}
+h1 span { color: var(--accent-yellow); }
+.sub { color: var(--text-muted); font-size: 14px; margin: 0 0 26px; max-width: 56ch; }
+
+.config-block {
+  background: var(--bg-panel-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px 18px 20px;
+  font-family: var(--mono);
+}
+.config-line {
+  color: var(--text-faint);
+  font-size: 12.5px;
+  margin-bottom: 16px;
+}
+.config-line .prompt { color: var(--accent-yellow); }
+.field { margin-bottom: 18px; }
+.field:last-child { margin-bottom: 0; }
+.field label {
+  display: block;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.field label .flag { color: var(--accent-blue); }
+
+.pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  padding: 7px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color .15s, color .15s, background .15s;
+}
+.pill:hover { border-color: var(--accent-blue-dim); color: var(--text-primary); }
+.pill.selected {
+  background: var(--accent-blue-dim);
+  border-color: var(--accent-blue);
+  color: #EAF3FC;
+}
+.pill .count { color: var(--text-faint); margin-left: 4px; }
+.pill.selected .count { color: #BBD8F2; }
+
+.toggle-row { display: flex; gap: 10px; }
+.toggle-card {
+  flex: 1;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+  border-radius: 6px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.toggle-card:hover { border-color: var(--accent-blue-dim); }
+.toggle-card.selected { border-color: var(--accent-blue); background: var(--bg-raised); }
+.toggle-card .t-name {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.toggle-card.selected .t-name::before { content: "●"; color: var(--accent-yellow); font-size: 9px; }
+.toggle-card:not(.selected) .t-name::before { content: "○"; color: var(--text-faint); font-size: 9px; }
+.toggle-card .t-desc { font-family: var(--sans); font-size: 12px; color: var(--text-muted); }
+
+.run-btn {
+  margin-top: 22px;
+  width: 100%;
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px;
+  border-radius: 7px;
+  border: 1px solid var(--accent-blue);
+  background: linear-gradient(180deg, var(--accent-blue) 0%, var(--accent-blue-dim) 100%);
+  color: #08131F;
+  cursor: pointer;
+  transition: filter .15s, transform .1s;
+}
+.run-btn:hover { filter: brightness(1.08); }
+.run-btn:active { transform: scale(0.995); }
+.run-btn:focus-visible, .pill:focus-visible, .toggle-card:focus-visible, .opt:focus-visible, .nav-btn:focus-visible {
+  outline: 2px solid var(--accent-yellow); outline-offset: 2px;
+}
+
+.progress-track {
+  height: 3px; width: 100%;
+  background: var(--bg-panel-alt);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 22px;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-yellow));
+  width: 0%;
+  transition: width .25s ease;
+}
+
+.qmeta {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 14px; flex-wrap: wrap; gap: 6px;
+}
+.qcount { font-family: var(--mono); font-size: 12px; color: var(--text-faint); }
+.qcat {
+  font-family: var(--mono); font-size: 11px; color: var(--accent-blue);
+  background: rgba(91,155,217,0.1); padding: 3px 9px; border-radius: 20px;
+  border: 1px solid rgba(91,155,217,0.25);
+}
+
+.prompt-line {
+  font-family: var(--mono); color: var(--accent-yellow); font-size: 14px; margin-bottom: 6px;
+}
+
+.question-block { margin-bottom: 20px; }
+.question-text { font-size: 16.5px; color: var(--text-primary); margin: 0 0 4px; line-height: 1.55; }
+.code-block {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: #C6D6E8;
+  background: var(--bg-deep);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin-top: 10px;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+.options { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.opt {
+  display: flex; align-items: center; gap: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-panel-alt);
+  border-radius: 7px;
+  padding: 12px 14px;
+  cursor: pointer;
+  font-size: 14.5px;
+  color: var(--text-primary);
+  transition: border-color .12s, background .12s;
+  text-align: left;
+  width: 100%;
+  font-family: var(--sans);
+}
+.opt:hover:not(.locked) { border-color: var(--accent-blue-dim); background: var(--bg-raised); }
+.opt .key {
+  font-family: var(--mono); font-size: 12px; color: var(--text-faint);
+  border: 1px solid var(--border); border-radius: 4px;
+  width: 22px; height: 22px; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.opt.chosen { border-color: var(--accent-blue); background: rgba(91,155,217,0.08); }
+.opt.chosen .key { border-color: var(--accent-blue); color: var(--accent-blue); }
+.opt.correct { border-color: var(--success); background: var(--success-dim); }
+.opt.correct .key { border-color: var(--success); color: var(--success); background: rgba(76,175,109,0.15); }
+.opt.incorrect { border-color: var(--error); background: var(--error-dim); }
+.opt.incorrect .key { border-color: var(--error); color: var(--error); }
+.opt code { font-family: var(--mono); background: rgba(255,255,255,0.06); padding: 1px 5px; border-radius: 3px; font-size: 0.92em; }
+
+.feedback-line {
+  font-family: var(--mono); font-size: 12.5px; margin-top: 12px; min-height: 16px;
+}
+.feedback-line.correct { color: var(--success); }
+.feedback-line.incorrect { color: var(--error); }
+
+.nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 22px; }
+.hint { font-family: var(--mono); font-size: 11px; color: var(--text-faint); }
+.nav-btn {
+  font-family: var(--mono); font-size: 13px; font-weight: 600;
+  padding: 10px 20px; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--accent-blue); background: var(--accent-blue-dim); color: #EAF3FC;
+  transition: filter .15s;
+}
+.nav-btn:hover { filter: brightness(1.12); }
+.nav-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.report {
+  font-family: var(--mono); font-size: 12.5px; color: var(--text-muted);
+  background: var(--bg-deep); border: 1px solid var(--border); border-radius: 8px;
+  padding: 16px 18px; margin-bottom: 20px; max-height: 260px; overflow-y: auto;
+}
+.report .collected { color: var(--text-primary); margin-bottom: 10px; }
+.report-line { display: flex; justify-content: space-between; gap: 10px; padding: 3px 0; border-bottom: 1px dashed var(--border-soft); }
+.report-line:last-child { border-bottom: none; }
+.report-line .name { color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.report-line .verdict.pass { color: var(--success); font-weight: 600; }
+.report-line .verdict.fail { color: var(--error); font-weight: 600; }
+
+.summary-bar {
+  font-family: var(--mono); font-size: 13px; text-align: center; padding: 12px;
+  border-radius: 6px; margin-bottom: 22px; letter-spacing: 0.02em;
+}
+.summary-bar.good { background: var(--success-dim); color: var(--success); border: 1px solid rgba(76,175,109,0.35); }
+.summary-bar.mixed { background: var(--error-dim); color: #F0918C; border: 1px solid rgba(229,83,75,0.35); }
+
+.breakdown { width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 13.5px; }
+.breakdown th {
+  text-align: left; font-family: var(--mono); font-size: 11px; color: var(--text-faint);
+  text-transform: uppercase; letter-spacing: 0.05em; padding-bottom: 8px; border-bottom: 1px solid var(--border);
+}
+.breakdown td { padding: 9px 0; border-bottom: 1px solid var(--border-soft); color: var(--text-primary); }
+.breakdown td.num { font-family: var(--mono); color: var(--text-muted); text-align: right; }
+.bar-bg { background: var(--bg-panel-alt); border-radius: 4px; height: 6px; width: 100%; overflow: hidden; margin-top: 5px; }
+.bar-fill { height: 100%; background: var(--accent-blue); }
+.bar-fill.weak { background: var(--error); }
+
+.result-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.result-actions .nav-btn.secondary {
+  background: transparent; border-color: var(--border); color: var(--text-muted);
+}
+.result-actions .nav-btn.secondary:hover { border-color: var(--accent-blue-dim); color: var(--text-primary); }
+
+.hidden { display: none !important; }
+
+@media (max-width: 560px) {
+  .gutter { display: none; }
+  .content { padding: 20px 16px 22px; }
+  .toggle-row { flex-direction: column; }
+}
+  </style>
+</head>
+<body>
+
+<div class="window">
+  <div class="titlebar">
+    <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+    <div class="tabname"><span class="status-dot" id="statusDot"></span><span id="tabLabel">practice_exam.py</span></div>
+    <div class="timer" id="timerDisplay"></div>
+  </div>
+
+  <div class="body-shell">
+    <div class="gutter" id="gutter"></div>
+    <div class="content">
+
+      <!-- SETUP SCREEN -->
+      <section id="setupScreen">
+        <!-- <div class="eyebrow">// freeCodeCamp Python Certification</div> -->
+        <h1>practice_<span>exam</span>.py</h1>
+        <p class="sub">A few honest caveats: it's a good drill for the multiple-choice/concept side of your prep, but it's not a substitute for actually writing code from scratch, which is still the better use of most of your remaining time for the real certification</p>
+
+        <div class="config-block">
+          <div class="config-line"><span class="prompt">&gt;&gt;&gt;</span> configure_session()</div>
+
+          <div class="field">
+            <label><span class="flag">--category</span></label>
+            <div class="pill-row" id="categoryPills"></div>
+          </div>
+
+          <div class="field">
+            <label><span class="flag">--questions</span></label>
+            <div class="pill-row" id="countPills"></div>
+          </div>
+
+          <div class="field">
+            <label><span class="flag">--mode</span></label>
+            <div class="toggle-row">
+              <div class="toggle-card selected" data-mode="practice" tabindex="0" role="button">
+                <div class="t-name">Practice Mode</div>
+                <div class="t-desc">See the right answer after every question. No timer. Good for daily reps.</div>
+              </div>
+              <div class="toggle-card" data-mode="exam" tabindex="0" role="button">
+                <div class="t-name">Exam Mode</div>
+                <div class="t-desc">No feedback until the end, timer runs. Simulates the real test.</div>
+              </div>
+            </div>
+          </div>
+
+          <button class="run-btn" id="startBtn">$ Run exam</button>
+        </div>
+      </section>
+
+      <!-- QUIZ SCREEN -->
+      <section id="quizScreen" class="hidden">
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="qmeta">
+          <span class="qcount" id="qCounter"></span>
+          <span class="qcat" id="qCat"></span>
+        </div>
+        <div class="prompt-line" id="qPrompt">&gt;&gt;&gt;</div>
+        <div class="question-block">
+          <p class="question-text" id="qText"></p>
+          <pre class="code-block hidden" id="qCode"></pre>
+        </div>
+        <ul class="options" id="optionsList"></ul>
+        <div class="feedback-line" id="feedbackLine"></div>
+        <div class="nav-row">
+          <span class="hint">Tip: press 1–4 to answer, Enter for next</span>
+          <button class="nav-btn" id="nextBtn" disabled>Next →</button>
+        </div>
+      </section>
+
+      <!-- RESULTS SCREEN -->
+      <section id="resultsScreen" class="hidden">
+        <div class="eyebrow">// session complete</div>
+        <h1 id="resultsHeadline">test session finished</h1>
+        <div class="summary-bar" id="summaryBar"></div>
+
+        <div class="report" id="reportLog"></div>
+
+        <table class="breakdown" id="breakdownTable">
+          <thead><tr><th>Topic</th><th style="text-align:right">Score</th></tr></thead>
+          <tbody id="breakdownBody"></tbody>
+        </table>
+
+        <div class="result-actions">
+          <button class="nav-btn" id="retryMissedBtn">Retry missed only</button>
+          <button class="nav-btn secondary" id="restartBtn">New session</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script>
+    (function() {
+
+  // -------- EXISTING BANK (hand‑crafted with options) --------
+  const EXISTING_BANK = [
+    // --- Python Basics ---
+    {c:"Python Basics", q:"Which libraries are commonly used for data analysis in Python?", opts:["Pandas and NumPy","TensorFlow and Scikit-learn","React and Vue","Django and Flask"], a:"Pandas and NumPy"},
+    {c:"Python Basics", q:"How is Python used in embedded systems and IoT?", opts:["It powers game engines for VR development.","It runs on microcomputers like Raspberry Pi and compatible boards.","It is primarily used for designing UI components.","It replaces low-level languages like C in all cases."], a:"It runs on microcomputers like Raspberry Pi and compatible boards."},
+    {c:"Python Basics", q:"Which of the following is the correct way to declare a variable in Python?", opts:["let age = 25","const age = 25","var age = 25","age = 25"], a:"age = 25"},
+    {c:"Python Basics", q:"What does it mean that Python is dynamically typed?", opts:["You must manually specify the data type of every variable.","Python does not support different data types.","Python automatically determines the data type based on the assigned value.","Variables in Python cannot change their data type after assignment."], a:"Python automatically determines the data type based on the assigned value."},
+    {c:"Python Basics", q:"What does it mean that a string is immutable?", opts:["A variable cannot be reassigned to a different string.","Variable reassignment directly modifies the original string.","A string cannot be directly modified by changing its individual characters.","String characters can be directly modified only under specific conditions."], a:"A string cannot be directly modified by changing its individual characters."},
+    {c:"Python Basics", q:"What does the double slash (//) operator do in Python?", opts:["It divides two numbers and returns the greatest integer less than or equal to the result.","It performs regular division and returns a float.","It represents a comment in Python.","It raises a number to the power of another."], a:"It divides two numbers and returns the greatest integer less than or equal to the result."},
+    {c:"Python Basics", q:"What will be the result for the following code?", code:"age = 12\n\nif age >= 18:\n    print('You are an adult')\nelif age >= 13:\n    print('You are a teenager')\nelse:\n    print('You are a child')", opts:["You are an adult will be printed to the console.","You are a teenager will be printed to the console.","You are a child will be printed to the console.","An error will be printed to the console."], a:"You are a child will be printed to the console."},
+    {c:"Python Basics", q:"Which of the following is NOT considered a falsy value in Python?", opts:['""','0.0','"False"','0'], a:'"False"'},
+    {c:"Python Basics", q:"What will result be in this example?", code:"developer = 'Naomi'\nresult = developer.endswith('N')", opts:["False","Undefined","None","True"], a:"False"},
+
+    // --- Install Python ---
+    {c:"Install Python", q:"Which address can you download Python from?", opts:["wikipedia.org","python3.com","python3.org","python.org"], a:"python.org"},
+    {c:"Install Python", q:'How can you get Python added to path automatically on Windows?', opts:["By installing Python.",'By checking the "add to path" checkbox during the installation process.','By checking the "use admin privileges" checkbox.',"By downloading Python from python.org."], a:'By checking the "add to path" checkbox during the installation process.'},
+    {c:"Install Python", q:"Which of the following is NOT a commonly used editor or IDE for Python development?", opts:["Clang","VS Code","Spyder","PyCharm"], a:"Clang"},
+    {c:"Install Python", q:"What does REPL stand for?", opts:["Run, Execute, Process, Launch","Read, Execute, Print, Load","Read, Evaluate, Print, Loop","Read, Enter, Parse, Log"], a:"Read, Evaluate, Print, Loop"},
+    {c:"Install Python", q:"What does the >>> symbol mean in the Python interactive shell?", opts:["Python is testing your code.","Python is installing packages.","Python has stopped running.","Python is waiting for the user input text."], a:"Python is waiting for the user input text."},
+    {c:"Install Python", q:"Where is the best place to download Python for Windows, Mac, and Linux?", opts:["From GitHub repositories","From the official Python website","From pip manager","From the npm package manager"], a:"From the official Python website"},
+
+    // --- Loops & Sequences ---
+    {c:"Loops & Sequences", q:"Which of the following is true about lists?", opts:["They are two-based indexed.","They are zero-based indexed.","They are only used inside of classes.","They are rarely used in Python programs."], a:"They are zero-based indexed."},
+    {c:"Loops & Sequences", q:"Which correctly accesses the second element?", code:"cities = ['Los Angeles', 'London', 'Tokyo']", opts:["cities[1]","cities[2]","cities[0]","cities[-1]"], a:"cities[1]"},
+    {c:"Loops & Sequences", q:"Which correctly accesses the second element from the end?", code:"numbers = [1, 2, 3, 4, 5, 6]", opts:["numbers[-5]","numbers[2]","numbers[0]","numbers[-2]"], a:"numbers[-2]"},
+    {c:"Loops & Sequences", q:"Which of the following is NOT a list method?", opts:["pop()","clear()","splice()","append()"], a:"splice()"},
+    {c:"Loops & Sequences", q:"What will be output to the console?", code:"developer = ('Alice', 34, 'Rust Developer')\nprint(developer[1])", opts:["'Rust Developer'","IndexError","34","'Alice'"], a:"34"},
+    {c:"Loops & Sequences", q:"What will the following code return?", code:"programming_languages = ('Rust', 'Java', 'Python', 'C++', 'Rust')\nprogramming_languages.count('Rust')", opts:["2","1","0","3"], a:"2"},
+    {c:"Loops & Sequences", q:"Which error will the following code raise?", code:"range()", opts:["IndexError","RangeError","TypeError","SyntaxError"], a:"TypeError"},
+    {c:"Loops & Sequences", q:"What does the enumerate() function do?", opts:["It is used to print the memory addresses for each element in a list.","It is used to create tuples and sets from lists and return an enumerate object.","It is used to keep track of the index of an iterable and return an enumerate object.","It is used to speed up the performance for your Python applications."], a:"It is used to keep track of the index of an iterable and return an enumerate object."},
+    {c:"Loops & Sequences", q:"What will be printed to the console?", code:"numbers = [5, 10, 15, 20]\ntotal = sum(numbers, start=10)\nprint(total)", opts:["60","50","40","70"], a:"60"},
+
+    // --- Dictionaries & Sets ---
+    {c:"Dictionaries & Sets", q:"How are elements primarily organized and accessed in a Python dictionary?", opts:["Using sequential indices, like a list.","Using key-value pairs, where keys are unique.","Using a tree-like structure, similar to file systems.","Using a linked list, where elements point to the next."], a:"Using key-value pairs, where keys are unique."},
+    {c:"Dictionaries & Sets", q:"What is the primary characteristic of a Python dictionary that makes it different from a list or tuple?", opts:["Dictionaries create duplicates of all key-value pairs.","Dictionaries are mutable.","Dictionaries allow fast lookups using keys.","Dictionaries can store duplicate values."], a:"Dictionaries allow fast lookups using keys."},
+    {c:"Dictionaries & Sets", q:"Which dictionary method is used to retrieve a value associated with a key, and provide a default value if the key is not found?", opts:[".keys()",".values()",".pop()",".get()"], a:".get()"},
+    {c:"Dictionaries & Sets", q:"Which set operation returns a new set with the elements that are present in either one of the two sets, but not in both of them?", opts:["Union","Intersection","Difference","Symmetric Difference"], a:"Symmetric Difference"},
+    {c:"Dictionaries & Sets", q:"Which of the following is the correct syntax to import the entire datetime module and give it a shorter alias dt?", opts:["import datetime","from datetime import date as dt","import datetime as dt","from datetime import dt"], a:"import datetime as dt"},
+    {c:"Dictionaries & Sets", q:"If you only want to use the mean function from the statistics module directly in your code without prefixing it with statistics, which import statement would you use?", opts:["import statistics","from statistics import mean","import mean from statistics","from statistics import *"], a:"from statistics import mean"},
+    {c:"Dictionaries & Sets", q:"What will be the output for the following code?", code:"products = {'Laptop': 990, 'Smartphone': 600}\n\nfor product in products.items():\n    print(product)", opts:["['Laptop', 990]  ['Smartphone', 600]","'Laptop', 990  'Smartphone', 600","<'Laptop', 990>  <'Smartphone', 600>","('Laptop', 990)  ('Smartphone', 600)"], a:"('Laptop', 990)  ('Smartphone', 600)"},
+    {c:"Dictionaries & Sets", q:"What will be output to the terminal?", code:"my_set = {1, 2, 3, 4, 5, 6}\nmy_set.add(5)\nprint(my_set)", opts:["SyntaxError","RangeError","{1, 2, 3, 4, 5, 6}","{1, 2, 3, 4, 5, 5, 6}"], a:"{1, 2, 3, 4, 5, 6}"},
+    {c:"Dictionaries & Sets", q:"Which of the following methods checks if a set is a subset?", opts:["issubset()","issub()","isset()","subset()"], a:"issubset()"},
+
+    // --- Error Handling ---
+    {c:"Error Handling", q:"What does a NameError mean in Python?", opts:["A variable is misspelled.","A variable is not defined.","An index is out of range.","A data type is incorrect."], a:"A variable is not defined."},
+    {c:"Error Handling", q:"Which error occurs when trying to add an integer to a string?", opts:["NameError","SyntaxError","TypeError","AttributeError"], a:"TypeError"},
+    {c:"Error Handling", q:"What causes an IndexError?", opts:["A function is missing.","A string is not formatted correctly.","Accessing an element outside the bounds of an iterable.","Using an undefined variable."], a:"Accessing an element outside the bounds of an iterable."},
+    {c:"Error Handling", q:"When does the finally block execute?", opts:["Only when there is no error","Only when an exception occurs","Always, no matter what","Only if the else block executes"], a:"Always, no matter what"},
+    {c:"Error Handling", q:"What happens when you use raise without any arguments?", opts:["It raises a generic Exception.","It does nothing.","It re-raises the current exception.","It raises a TypeError."], a:"It re-raises the current exception."},
+    {c:"Error Handling", q:"What will be the output of this code?", code:"try:\n    print(22 / 0)\nexcept ZeroDivisionError:\n    print(\"You can't divide by zero!\")", opts:["0","10","You can't divide by zero!","22"], a:"You can't divide by zero!"},
+    {c:"Error Handling", q:"Which of the following optional clauses can be added to a try...except statement?", opts:["else and finally","if and else","else and elif","elif and if"], a:"else and finally"},
+    {c:"Error Handling", q:"Which keyword is used to chain exceptions together?", opts:["with","from","chain","link"], a:"from"},
+
+    // --- Classes & Objects ---
+    {c:"Classes & Objects", q:"What is the output of this code?", code:"class Dog:\n    def __init__(self, name):\n        self.name = name\n\nmy_dog = Dog(\"Rex\")\nprint(my_dog.name)", opts:["Rex says Woof!","name","Rex","Error"], a:"Rex"},
+    {c:"Classes & Objects", q:"What is the special method that gets automatically called when a new object is created?", opts:["__create_object__","__init__","__new__","__setup__"], a:"__init__"},
+    {c:"Classes & Objects", q:"What are the two types of attributes in Python?", opts:["Public and private attributes","Local and global attributes","Instance attributes and class attributes","Mutable and immutable attributes"], a:"Instance attributes and class attributes"},
+    {c:"Classes & Objects", q:'How was the word "dunder" derived?', opts:['From "dynamic under-the-hood operations"','From shortening "double underscore" (__)',"From the creator of Python's nickname",'From "data under" in reference to hidden methods'], a:'From shortening "double underscore" (__)'},
+    {c:"Classes & Objects", q:"What does the self parameter refer to inside a method?", opts:["It's a reference to the instance of the class calling the method.","It's a reference to the class being used.","It's a reference to the object initializer.","It's a reference to the module where the class is defined."], a:"It's a reference to the instance of the class calling the method."},
+    {c:"Classes & Objects", q:"What is the result of the following code?", code:'class Menu:\n    dish_of_the_day = "spam"\n\nprint(Menu.dish_of_the_day)', opts:["spam","AttributeError","SyntaxError","None"], a:"spam"},
+    {c:"Classes & Objects", q:"What will be the result of the following code?", code:'class Dog:\n    def __init__(name, age):\n        self.name = name\n        self.age = age\n\ndog = Dog("Pinky", 3)\nprint(dog.name)', opts:["Pinky","AttributeError","3","TypeError"], a:"TypeError"},
+    {c:"Classes & Objects", q:"What is the difference between an instance attribute and a class attribute?", opts:["Instance attributes define methods that can be accessed from an object; class attributes define methods that can be accessed from a class.","Instance attributes can be directly accessed from the class; class attributes can only be accessed from an actual instance of the class.","Instance attributes are set within the __init__ method; class attributes are set within the __class__ method.","Instance attributes belong to a specific object; class attributes belong to a class."], a:"Instance attributes belong to a specific object; class attributes belong to a class."},
+
+    // --- Object-Oriented Programming ---
+    {c:"OOP", q:"What are the four key principles of Object-Oriented Programming (OOP)?", opts:["Encapsulation, Inheritance, Polymorphism, Abstraction","Variables, Functions, Loops, Conditionals","Classes, Objects, Methods, Attributes","Public, Private, Protected, Static"], a:"Encapsulation, Inheritance, Polymorphism, Abstraction"},
+    {c:"OOP", q:"What is the way for indicating private attributes or methods?", opts:["Prefix with a single underscore","Use leading and trailing double underscores","Prefix with a double underscore","Use the private keyword"], a:"Prefix with a double underscore"},
+    {c:"OOP", q:"What two decorators are used to create getters and setters for a property?", opts:["@getter and @setter","@attr.get and @attr.set","@compute and @assign","@property and @<property_name>.setter"], a:"@property and @<property_name>.setter"},
+    {c:"OOP", q:"What is multiple inheritance in Python?", opts:["A child class inheriting from one parent class.","A parent class with multiple child classes.","A child class inheriting from multiple parent classes.","A class that cannot inherit at all."], a:"A child class inheriting from multiple parent classes."},
+    {c:"OOP", q:"What is polymorphism in object-oriented programming?", opts:["When a class cannot have methods with the same name.","When different classes can use the same method name but implement it differently.","When a method must be unique across all classes.","When a child class deletes a parent class's method."], a:"When different classes can use the same method name but implement it differently."},
+    {c:"OOP", q:"What is the difference between a single underscore and a double underscore?", opts:["A single underscore and a double underscore are treated the same way by Python.","A single underscore makes attributes completely private, while a double underscore makes them protected.","A single underscore prevents direct access, while a double underscore allows direct access.","A single underscore is just a convention, while a double underscore triggers name mangling."], a:"A single underscore is just a convention, while a double underscore triggers name mangling."},
+    {c:"OOP", q:"What is name mangling?", opts:["A process in which Python converts all attributes into methods for easier access.","A process in which Python deletes attributes with a single underscore to keep them hidden.","A process in which Python changes __attribute into _ClassName__attribute to avoid accidental overriding in subclasses.","A process in which Python encrypts private data to make it inaccessible from outside the class."], a:"A process in which Python changes __attribute into _ClassName__attribute to avoid accidental overriding in subclasses."},
+    {c:"OOP", q:"Which of the following is NOT one of the key principles of object-oriented programming?", opts:["Don't repeat yourself (DRY)","Inheritance","Abstraction","Encapsulation"], a:"Don't repeat yourself (DRY)"},
+    {c:"OOP", q:"Which function lets you invoke a method from a parent inside a child class?", opts:["constructor()","__init__()","super()","property()"], a:"super()"},
+    {c:"OOP", q:"Why are properties used instead of methods for getters and setters?", opts:["To prevent access to the value entirely.","To automatically log every value change.","To allow direct attribute-like access with dot notation for better readability.","To make code longer and more explicit."], a:"To allow direct attribute-like access with dot notation for better readability."},
+
+    // --- Linear Data Structures ---
+    {c:"Linear Data Structures", q:"Which of the following best describes an algorithm?", opts:["A specific programming language used to write code.","A set of step-by-step instructions designed to solve a problem or perform a task.","A type of computer hardware component.","A software application used for developing and playing games."], a:"A set of step-by-step instructions designed to solve a problem or perform a task."},
+    {c:"Linear Data Structures", q:"What is the primary purpose of Big O notation in the context of algorithms?", opts:["To measure the exact time an algorithm takes to run on a specific computer in seconds.","To count the total number of lines of code in an algorithm.","To describe how the resource usage of an algorithm grows as the input size increases.","To determine the best-case performance of an algorithm."], a:"To describe how the resource usage of an algorithm grows as the input size increases."},
+    {c:"Linear Data Structures", q:"What is the primary difference between a stack and a queue?", opts:["Stacks are LIFO, while queues are FIFO.","Stacks are FIFO, while queues are LIFO.","Stacks are used for storing data, while queues are used for processing data.","There is no difference between stacks and queues."], a:"Stacks are LIFO, while queues are FIFO."},
+    {c:"Linear Data Structures", q:"What is the time complexity of inserting a node at the beginning of a singly linked list?", opts:["O(1)","O(n)","O(n^2)","O(log n)"], a:"O(1)"},
+    {c:"Linear Data Structures", q:"What is the fundamental difference in the type of data stored by a hash map (or map) compared to a set?", opts:["Hash maps store ordered collections, while Sets store unordered collections.","Hash maps store unique key-value pairs, while Sets store unique individual elements.","Hash maps cannot store duplicate values, while Sets can.","Sets are used for numerical data, while hash maps are for textual data."], a:"Hash maps store unique key-value pairs, while Sets store unique individual elements."},
+    {c:"Linear Data Structures", q:'In the context of hash maps and sets, what is a "hash collision"?', opts:["When an element is successfully found after a search.","When an element is inserted at the very beginning of the collection.","When the hash map runs out of memory and needs to resize.","When two different keys or elements produce the same hash value."], a:"When two different keys or elements produce the same hash value."},
+    {c:"Linear Data Structures", q:"What is the amortized time complexity of appending an element to the end of a dynamic array?", opts:["O(log n)","O(1) amortized.","O(n)","O(n log n)"], a:"O(1) amortized."},
+    {c:"Linear Data Structures", q:"Why does accessing the k-th element by index in a singly linked list take O(n) time?", opts:["The index is hashed and looked up in a table.","Nodes are stored contiguously, so shifting is required.","The list must be resized before any access.","You must traverse from the head node to the k-th node one by one."], a:"You must traverse from the head node to the k-th node one by one."},
+    {c:"Linear Data Structures", q:"In a dynamic array, what is the worst-case time complexity of inserting an element at index i (not at the end)?", opts:["O(log n)","O(n)","O(1) amortized","O(1)"], a:"O(n)"},
+    {c:"Linear Data Structures", q:"What does space complexity measure?", opts:["How long a program takes to compile.","How many CPU cores a program uses.","How memory usage grows relative to input size.","The length of a program in lines of code."], a:"How memory usage grows relative to input size."},
+
+    // --- Searching & Sorting ---
+    {c:"Searching & Sorting", q:"What is the main difference between linear search and binary search?", opts:["Linear search is faster than binary search.","Binary search requires a sorted list, while linear search does not.","Linear search can only be used with numbers.","Binary search always returns the first occurrence of a target."], a:"Binary search requires a sorted list, while linear search does not."},
+    {c:"Searching & Sorting", q:"What is the time complexity of linear search?", opts:["O(1)","O(log n)","O(n)","O(n²)"], a:"O(n)"},
+    {c:"Searching & Sorting", q:"In binary search, what happens if the target value is not found in the list?", opts:["It returns the middle index.","It returns -1.","It returns the last index checked.","It enters an infinite loop."], a:"It returns -1."},
+    {c:"Searching & Sorting", q:"What is the divide and conquer paradigm in computer science?", opts:["A technique for detecting a cycle in function value iterations using just two iterators.","An algorithm for comparing two elements and swapping them from smallest to largest if needed.","A technique for recursively breaking down problems into smaller sub-problems.","An algorithm to compute the shortest connecting network for points in a plane."], a:"A technique for recursively breaking down problems into smaller sub-problems."},
+    {c:"Searching & Sorting", q:"What is the time complexity for the merge sort algorithm?", opts:["O(n log n)","O(log n²)","O(n³ log n)","O(log n³)"], a:"O(n log n)"},
+    {c:"Searching & Sorting", q:"What is the space complexity for the merge sort algorithm?", opts:["O(n²)","O(1)","O(n log n)","O(n)"], a:"O(n)"},
+    {c:"Searching & Sorting", q:"How does the merge sort algorithm work?", opts:["It searches for an element by checking each item one by one.","It builds a sorted list by repeatedly finding the smallest element.","It swaps adjacent elements until the list is sorted.","It recursively splits the list into smaller items, then merges them in sorted order."], a:"It recursively splits the list into smaller items, then merges them in sorted order."},
+    {c:"Searching & Sorting", q:"What is the condition for a binary search to work?", opts:["The list must contain no negative numbers.","The list must contain only unique values.","The list must have an even number of elements.","The list must be sorted."], a:"The list must be sorted."},
+
+    // --- Graphs & Trees ---
+    {c:"Graphs & Trees", q:"What is a graph in computer science?", opts:["A data structure used to represent relationships between objects.","A mathematical equation.","A visual representation of data.","A programming language."], a:"A data structure used to represent relationships between objects."},
+    {c:"Graphs & Trees", q:"What are the two main components of a graph?", opts:["Points and lines","Vertices and nodes","Nodes and edges","Elements and vertices"], a:"Nodes and edges"},
+    {c:"Graphs & Trees", q:"What is a directed graph?", opts:["A graph where edges do not have a direction.","A graph where edges have a direction.","A graph with more nodes than edges.","A graph with more edges than nodes."], a:"A graph where edges have a direction."},
+    {c:"Graphs & Trees", q:"Which of the following data structures is commonly used to implement a standard breadth-first search (BFS) algorithm?", opts:["Stack","Queue","Linked List","Tree"], a:"Queue"},
+    {c:"Graphs & Trees", q:"Which of the following statements about depth-first search (DFS) is true?", opts:["Depth-first search is guaranteed to find the shortest path between two nodes in an unweighted graph.","Depth-first search visits all neighbors at the current level before moving to the next level.","Depth-first search is always more space-efficient than BFS.","Depth-first search is typically implemented using recursion or a stack."], a:"Depth-first search is typically implemented using recursion or a stack."},
+    {c:"Graphs & Trees", q:"Which of the following statements about a Binary Search Tree (BST) is always true?", opts:["All values in the left subtree of a node are less than the node's value.","Every node can have up to three children.","The tree is guaranteed to be perfectly balanced after every insertion.","It is a specialized tree-like structure optimized for storing strings."], a:"All values in the left subtree of a node are less than the node's value."},
+    {c:"Graphs & Trees", q:"For which of the following tasks is a trie, or prefix tree most effective?", opts:["Finding the smallest value in a large dataset.","Managing a hierarchical file system on a computer.","Implementing an autocomplete feature.","Storing an unordered list of unique numbers."], a:"Implementing an autocomplete feature."},
+    {c:"Graphs & Trees", q:"What is the primary characteristic that distinguishes a priority queue from a standard queue or stack?", opts:["It allows elements to be accessed by their index.","It always processes elements in the order they were inserted.","It retrieves elements based on an assigned priority.","It only stores elements of the same data type."], a:"It retrieves elements based on an assigned priority."},
+    {c:"Graphs & Trees", q:"What are the two types of heaps?", opts:["Wide-heap and Tall-heap","Horizontal-heap and Vertical-heap","Breadth-heap and Depth-heap","Max-heap and Min-heap"], a:"Max-heap and Min-heap"},
+    {c:"Graphs & Trees", q:"What must be true for a graph to be classified as a tree?", opts:["It must have three loops or cycles.","It must have at least two loops or cycles.","It must have at least one loop or cycle.","It cannot have loops or cycles."], a:"It cannot have loops or cycles."},
+
+    // --- Dynamic Programming ---
+    {c:"Dynamic Programming", q:"What are the two key conditions that must be present for dynamic programming to be applicable?", opts:["Fast execution and low memory usage.","Overlapping subproblems and optimal substructure.","Recursive calls and iterative loops.","Memoization and tabulation."], a:"Overlapping subproblems and optimal substructure."},
+    {c:"Dynamic Programming", q:"What is the main difference between memoization and tabulation approaches in dynamic programming?", opts:["Memoization uses more memory than tabulation.","Tabulation is always faster than memoization.","Memoization is top-down while tabulation is bottom-up.","Memoization only works with recursive functions."], a:"Memoization is top-down while tabulation is bottom-up."},
+    {c:"Dynamic Programming", q:"In the naive recursive climbing stairs implementation, what is the time complexity and why is it inefficient?", opts:["O(n) because it calculates each step once.","O(n²) because it uses nested loops.","O(2^n) because it recalculates the same subproblems multiple times.","O(log n) because it divides the problem in half."], a:"O(2^n) because it recalculates the same subproblems multiple times."},
+    {c:"Dynamic Programming", q:"What does optimal substructure mean in the context of dynamic programming?", opts:["The optimal solution can be constructed from optimal solutions to its subproblems.","The algorithm must use the most efficient data structure available.","The solution must minimize both time and space complexity simultaneously.","The problem must have a unique, single optimal solution."], a:"The optimal solution can be constructed from optimal solutions to its subproblems."},
+    {c:"Dynamic Programming", q:"What is a key advantage of using tabulation instead of memoization?", opts:["Tabulation is always easier to implement and understand.","Tabulation can solve a broader class of problems.","Tabulation always requires less memory than memoization.","Tabulation avoids recursion overhead and provides predictable sequential execution."], a:"Tabulation avoids recursion overhead and provides predictable sequential execution."},
+    {c:"Dynamic Programming", q:"How does dynamic programming transform the time complexity of problems that exhibit overlapping subproblems?", opts:["From polynomial to logarithmic by dividing the problem efficiently.","From quadratic to linear by optimizing loop structures.","From linear to constant by using hash tables.","From exponential to polynomial by storing and reusing subproblem solutions."], a:"From exponential to polynomial by storing and reusing subproblem solutions."},
+    {c:"Dynamic Programming", q:"What trade-off does dynamic programming typically make to achieve better time complexity?", opts:["It limits the size of problems that can be solved.","It requires more complex algorithms that are harder to maintain.","It uses additional space to store intermediate results.","It sacrifices code readability for faster execution."], a:"It uses additional space to store intermediate results."},
+    {c:"Dynamic Programming", q:"In which scenario would dynamic programming NOT be the appropriate algorithmic approach?", opts:["When space complexity must be minimized.","When the problem requires finding an optimal solution.","When subproblems are independent and don't overlap.","When the problem can be broken into smaller subproblems."], a:"When subproblems are independent and don't overlap."},
+  ];
+
+
+  // -------- NEW QUESTIONS (from the Q&A document, without options) --------
+  const NEW_QUESTIONS = [
+    // Python Basics
+    {c:"Python Basics", q:"Which of these is NOT a rule for naming variables?", a:"Variable names are case-insensitive."},
+    {c:"Python Basics", q:"Why should you avoid using single-letter variable names?", a:"They do not communicate the purpose of the variable."},
+    {c:"Python Basics", q:"Why does `print('My favorite colors are', 'blue', 'green', 'red')` print everything on one line with spaces?", a:"Because separating values with commas in `print()` automatically adds spaces between them."},
+    {c:"Python Basics", q:"What is the output of `print('Hello', 'world!')`?", a:"Hello world!"},
+    {c:"Python Basics", q:"What is the purpose of the quotation marks around `Hello world!` in `print('Hello world!')`?", a:"They define a string to be printed by the `print()` function."},
+    {c:"Python Basics", q:"What is the difference between the integer and float data types?", a:"Integers are whole numbers without decimals; floats are numbers with decimal points."},
+    {c:"Python Basics", q:"Which of the following is a True/False type in Python?", a:"Boolean."},
+    {c:"Python Basics", q:"What is the output of `type(developer)` where `developer = 'Devin'`?", a:"<class 'str'>"},
+    {c:"Python Basics", q:"Which function is used to check if a variable is a specific type?", a:"isinstance()"},
+    {c:"Python Basics", q:"What is returned by `isinstance(account_balance, (int, float))` where `account_balance = 12`?", a:"True"},
+    {c:"Python Basics", q:"How do you get the length of a string `s`?", a:"len(s)"},
+    {c:"Python Basics", q:"How do you define a multiline string in Python?", a:"Using triple double quotes `\"\"\"` or triple single quotes `'''`."},
+    {c:"Python Basics", q:"How can you concatenate strings in Python?", a:"By using the `+` operator."},
+    {c:"Python Basics", q:"What does the `str()` function do?", a:"It returns a string version of the given object."},
+    {c:"Python Basics", q:"What is string interpolation?", a:"The process of inserting variables and expressions into a string (e.g. f-strings)."},
+    {c:"Python Basics", q:"How do you extract a specific portion of a string in Python?", a:"Using square brackets with start and stop positions (slicing)."},
+    {c:"Python Basics", q:"What is the outcome of `'Hello'[2:]`?", a:"llo"},
+    {c:"Python Basics", q:"What is the purpose of the optional `step` parameter in string slicing?", a:"It specifies the increment between each character to extract."},
+    {c:"Python Basics", q:"Which methods check if all letters in a string are uppercase / lowercase?", a:"isupper() and islower()"},
+    {c:"Python Basics", q:"How can you replace all occurrences of part of a string with another string?", a:"Using the `replace()` method with the old and new text."},
+    {c:"Python Basics", q:"What does the `upper()` method do?", a:"Converts all characters in a string to uppercase."},
+    {c:"Python Basics", q:"Which statement correctly describes integers in Python?", a:"Integers are whole numbers without decimal points, either positive or negative."},
+    {c:"Python Basics", q:"Which method returns the absolute value of a number?", a:"abs()"},
+    {c:"Python Basics", q:"What is the main advantage of using augmented assignment operators?", a:"They provide a concise way to update variables without repeating the variable name."},
+    {c:"Python Basics", q:"What happens when you use the increment (`++`) and decrement (`--`) operators in Python?", a:"They don't exist in Python — they're interpreted as double unary operators (`+(+x)` / `-(-x)`) with no actual increment/decrement effect."},
+    {c:"Python Basics", q:"Which augmented assignment operator raises a variable to a power and stores the result back?", a:"**="},
+    {c:"Python Basics", q:"What do comparison operators do?", a:"Compare two values and return a boolean value."},
+    {c:"Python Basics", q:"What does `3 >= 4` evaluate to?", a:"False"},
+    {c:"Python Basics", q:"What happens when Python evaluates the expression `x or y`?", a:"It returns `x` if it evaluates to `True`, and skips evaluating `y` entirely (short-circuiting)."},
+    {c:"Python Basics", q:"What is the default return value of a function in Python?", a:"None"},
+    {c:"Python Basics", q:"What is the term for a placeholder variable in a function definition?", a:"Parameter."},
+    {c:"Python Basics", q:"What keyword is used to define a custom function in Python?", a:"def"},
+    {c:"Python Basics", q:"What rule does Python follow to determine the scope of a variable?", a:"LEGB — Local, Enclosing, Global, Built-in."},
+    {c:"Python Basics", q:"What does the `nonlocal` keyword do?", a:"Allows modifying a variable from an enclosing (outer) function's scope."},
+    {c:"Python Basics", q:"Which keyword can you use to modify a global variable inside a function?", a:"global"},
+    {c:"Python Basics", q:"Which of the following is NOT a form of string concatenation?", a:"`greeting = x'My name is {developer}.'` — this is invalid syntax (should be an f-string)."},
+    {c:"Python Basics", q:"Which function returns the number of characters in a string?", a:"len()"},
+    {c:"Python Basics", q:"What happens when you add a float and an integer?", a:"The result will be a float."},
+    {c:"Python Basics", q:"Which of the following is the correct way to define a function?", a:"def get_sum(num_1, num_2):\n    return num_1 + num_2"},
+    {c:"Python Basics", q:"What prints for `def greet(): pass` then `print(greet())`?", a:"None — a function with no `return` statement returns `None` by default."},
+    {c:"Python Basics", q:"Which statement about naming variables is false?", a:"Variable names must have a max length of 10 characters."},
+    {c:"Python Basics", q:"Which of the following is NOT a supported data type in Python?", a:"Generic"},
+    {c:"Python Basics", q:"Which will return a new string with all characters converted to uppercase?", a:"developer.upper()"},
+    {c:"Python Basics", q:"Which function is used to get input from a user?", a:"input()"},
+    {c:"Python Basics", q:"What does `message[0:6]` return for `message = 'Python is fun!'`?", a:"'Python'"},
+    {c:"Python Basics", q:"What does the `split()` method do?", a:"Splits a string into a list of substrings."},
+    {c:"Python Basics", q:"What prints for `' '.join(['example', 'dashed', 'name'])`?", a:"'example dashed name'"},
+    {c:"Python Basics", q:"Which function creates a table of 1-to-1 character mappings for translation?", a:"str.maketrans()"},
+    {c:"Python Basics", q:"What is the result of `4 ** 2`?", a:"16"},
+    {c:"Python Basics", q:"What does `find()` return if no substring occurrences are found?", a:"-1"},
+    {c:"Python Basics", q:"Which function counts the number of times a substring appears in a string?", a:"count()"},
+    {c:"Python Basics", q:"What does floor division do in Python?", a:"Divides two numbers and rounds down the result to the nearest whole number."},
+    {c:"Python Basics", q:"Which function rounds a number to the nearest whole integer?", a:"round()"},
+
+    // Install Python
+    {c:"Install Python", q:"What kind of file do you download while installing Python for Windows?", a:"An executable (`.exe`)."},
+    {c:"Install Python", q:"What does IDE stand for?", a:"Integrated Development Environment."},
+    {c:"Install Python", q:"Which is the correct command to run a Python script in the terminal?", a:"python main.py"},
+    {c:"Install Python", q:"What is an interactive shell?", a:"A program that lets you type commands one at a time and see the results immediately."},
+    {c:"Install Python", q:"Which is a correct way to leave an interactive shell?", a:"Type `exit()` in the terminal."},
+    {c:"Install Python", q:"What is a terminal in the context of programming?", a:"A text-based interface for running commands."},
+    {c:"Install Python", q:"Which are popular IDEs or code editors for Python?", a:"VS Code, PyCharm, Spyder."},
+    {c:"Install Python", q:"What happens when you run `print(\"Hello, world!\")` in the Python interactive shell?", a:"It prints \"Hello, world!\" in the terminal."},
+
+    // Loops & Sequences
+    {c:"Loops & Sequences", q:"How do you correctly insert `2.5` at index 2 in `numbers = [1, 2, 3, 4, 5]`?", a:"numbers.insert(2, 2.5)"},
+    {c:"Loops & Sequences", q:"Which method reverses a list of elements in place?", a:"reverse()"},
+    {c:"Loops & Sequences", q:"What happens with `del developer[1]` on a tuple?", a:"TypeError — tuples don't support item deletion."},
+    {c:"Loops & Sequences", q:"What happens with `.index('JavaScript')` when the value isn't in the tuple?", a:"ValueError"},
+    {c:"Loops & Sequences", q:"Which function returns a new sorted list from an iterable?", a:"sorted()"},
+    {c:"Loops & Sequences", q:"Which loop repeats a block of code until a condition is False?", a:"while"},
+    {c:"Loops & Sequences", q:"Which keyword is used to stop the execution of a loop?", a:"break"},
+    {c:"Loops & Sequences", q:"What is the `range()` function used for?", a:"To generate a sequence of integers."},
+    {c:"Loops & Sequences", q:"Which is the only required argument for `range()`?", a:"stop"},
+    {c:"Loops & Sequences", q:"Which optional argument in `enumerate()` specifies the starting value for the count?", a:"start"},
+    {c:"Loops & Sequences", q:"What does the `zip()` function do?", a:"Iterates over multiple iterables in parallel."},
+    {c:"Loops & Sequences", q:"Which is the correct way to use list comprehension?", a:"[num for num in range(21) if num % 2 == 0]"},
+    {c:"Loops & Sequences", q:"Which function applies a given function to each element of an iterable?", a:"map()"},
+    {c:"Loops & Sequences", q:"What is the best use case for a lambda function?", a:"Writing a small, throwaway function for use inside a `map()` or `filter()` call."},
+    {c:"Loops & Sequences", q:"Why is it generally bad practice to assign a lambda function to a variable?", a:"It defeats the purpose of using an anonymous function — if it needs a name, write a regular function."},
+    {c:"Loops & Sequences", q:"What is the primary disadvantage of a complex, nested lambda expression?", a:"It's harder to understand and maintain."},
+    {c:"Loops & Sequences", q:"What is an iterable?", a:"A special type of object that can be looped over, one item at a time."},
+    {c:"Loops & Sequences", q:"What prints for `list('Jessica')`?", a:"['J', 'e', 's', 's', 'i', 'c', 'a']"},
+    {c:"Loops & Sequences", q:"Which function gets the number of elements in a list?", a:"len()"},
+    {c:"Loops & Sequences", q:"What happens if you pass an out-of-bounds index to a list?", a:"IndexError"},
+    {c:"Loops & Sequences", q:"Which method adds an item to the end of a list?", a:"append()"},
+    {c:"Loops & Sequences", q:"What prints after `numbers.extend(even_numbers)` given `numbers=[1,2,3,4,5]` and `even_numbers=[6,8,10]`?", a:"[1, 2, 3, 4, 5, 6, 8, 10]"},
+    {c:"Loops & Sequences", q:"Which method inserts an element at a specific index in a list?", a:"insert()"},
+    {c:"Loops & Sequences", q:"What prints after `numbers.remove(5)` given `numbers=[1,2,3,4,5,5,5]`?", a:"[1, 2, 3, 4, 5, 5] — `remove()` only deletes the *first* match."},
+    {c:"Loops & Sequences", q:"Which method empties a list completely?", a:"clear()"},
+    {c:"Loops & Sequences", q:"What is a tuple?", a:"An immutable, ordered sequence of values."},
+    {c:"Loops & Sequences", q:"Which is the correct way to unpack items from a tuple?", a:"name, age, job = developer"},
+    {c:"Loops & Sequences", q:"What is the result of `programming_languages.index('Python', 3)` on `('Rust','Java','Python','C++','Rust','Python')`?", a:"5 — searching starts from index 3."},
+    {c:"Loops & Sequences", q:"Which is the correct way to use a `for` loop?", a:"for language in programming_languages:\n    print(language)"},
+
+    // Dictionaries & Sets
+    {c:"Dictionaries & Sets", q:"Which constructor can be used to create a dictionary?", a:"dict()"},
+    {c:"Dictionaries & Sets", q:"Which is the correct way to access a value from a dictionary?", a:"dictionary[key]"},
+    {c:"Dictionaries & Sets", q:"Which is the correct way to update a value in a dictionary?", a:"pizza['name'] = 'Margherita'"},
+    {c:"Dictionaries & Sets", q:"What is a \"view object\"?", a:"A way to see the content of a dictionary without creating a separate copy of the data."},
+    {c:"Dictionaries & Sets", q:"Which method returns a view object with all the key-value pairs in a dictionary?", a:".items()"},
+    {c:"Dictionaries & Sets", q:"Which method removes all key-value pairs from a dictionary?", a:".clear()"},
+    {c:"Dictionaries & Sets", q:"Which is the correct way to create a set?", a:"my_set = {1, 2, 3, 4, 5}"},
+    {c:"Dictionaries & Sets", q:"Which function creates an empty set?", a:"set() — note `{}` creates an empty *dictionary*, not a set."},
+    {c:"Dictionaries & Sets", q:"Which method checks if two sets are disjoint (share no elements)?", a:".isdisjoint()"},
+    {c:"Dictionaries & Sets", q:"Which built-in module is used for generating random numbers?", a:"random"},
+    {c:"Dictionaries & Sets", q:"Which module is used for working with regular expressions?", a:"re"},
+
+    // Error Handling
+    {c:"Error Handling", q:"What is the purpose of using `print()` in debugging?", a:"To display variable values and program flow."},
+    {c:"Error Handling", q:"What does the `pdb` module provide?", a:"An interactive debugging environment."},
+    {c:"Error Handling", q:"What advantage do IDE debugging tools have over `print()` statements?", a:"They provide a visual interface to inspect the state of your program."},
+    {c:"Error Handling", q:"What does the `try` block do?", a:"Defines a block of code to test for errors."},
+    {c:"Error Handling", q:"Which statement is used to catch a specific error?", a:"except"},
+    {c:"Error Handling", q:"What does the `raise` statement do?", a:"Manually triggers an exception."},
+    {c:"Error Handling", q:"Which exception is raised when you use a method or attribute that doesn't exist for that type?", a:"AttributeError"},
+    {c:"Error Handling", q:"Which statement lets you manually raise an exception?", a:"raise"},
+    {c:"Error Handling", q:"What error does `print(\"Hello world\"` (missing closing parenthesis) raise?", a:"SyntaxError"},
+    {c:"Error Handling", q:"What does `try...except` let you do?", a:"Execute a block of code that might raise an exception, and handle it gracefully."},
+    {c:"Error Handling", q:"Which object lets you access the exception itself for debugging?", a:"The Exception Object (captured via `as e`)."},
+
+    // Classes & Objects
+    {c:"Classes & Objects", q:"What is required to access instance attributes?", a:"An instance (object) of the class."},
+    {c:"Classes & Objects", q:"How do you define and access methods in a class?", a:"They're defined inside a class and accessed using dot notation."},
+    {c:"Classes & Objects", q:"Which special method is called during an addition operation?", a:"__add__()"},
+    {c:"Classes & Objects", q:"Which special method is called when you use the greater-than (`>`) operator?", a:"__gt__()"},
+    {c:"Classes & Objects", q:"What does the `getattr()` function allow you to do?", a:"Read an attribute from an object when its name is unknown until runtime."},
+    {c:"Classes & Objects", q:"Why would you want to handle object attributes dynamically?", a:"To work with attributes whose names aren't known until runtime."},
+    {c:"Classes & Objects", q:"What is the correct syntax for checking if an object has a specific attribute?", a:"hasattr(object, attribute_name)"},
+    {c:"Classes & Objects", q:"Which is the correct way to define a class?", a:"class className:\n    pass"},
+    {c:"Classes & Objects", q:"What is the purpose of the special method `__init__`?", a:"It initializes an object's attributes upon instantiation."},
+    {c:"Classes & Objects", q:"Which is the correct way to call a `spam` method on a `menu` object?", a:"menu.spam()"},
+    {c:"Classes & Objects", q:"Which special method is called under the hood when an object is printed?", a:"__str__"},
+    {c:"Classes & Objects", q:"Which correctly creates an instance of a class `Person`?", a:"Person()"},
+    {c:"Classes & Objects", q:"Which is the correct way to access the `name` attribute of a `dog` object?", a:"dog.name"},
+
+    // OOP
+    {c:"OOP", q:"Why is it bad practice to directly access attributes/methods prefixed with a single underscore?", a:"Because it violates encapsulation, allowing uncontrolled access to data that's meant to be internal."},
+    {c:"OOP", q:"What lets you run logic behind the scenes while getting or setting an attribute's value?", a:"Properties."},
+    {c:"OOP", q:"What ties getters and setters together so you can still use simple dot notation?", a:"Properties."},
+    {c:"OOP", q:"What is the primary purpose of inheritance in OOP?", a:"To allow a child class to reuse and extend the attributes/methods of a parent class."},
+    {c:"OOP", q:"How do you make a child class inherit from a parent class in Python?", a:"By passing the parent class as an argument to the child class: `class Child(Parent):`"},
+    {c:"OOP", q:"In inheritance-based polymorphism, what must a child class do to provide its own implementation?", a:"Override the method by redefining it with the same name."},
+    {c:"OOP", q:"What is the key benefit of inheritance-based polymorphism?", a:"It allows calling the same method name on different child objects, with each executing its own version."},
+    {c:"OOP", q:"What happens if you DON'T prefix shared attribute names with a double underscore in parent and child classes?", a:"The child class's attribute overrides the parent's entirely — without mangling, there's nothing to keep the two versions separate."},
+    {c:"OOP", q:"What is the primary goal of abstraction in OOP?", a:"To hide complex logic and only show the essential features."},
+    {c:"OOP", q:"How does Python implement abstraction through the `abc` module?", a:"By using decorators and inheritance to define abstract methods that subclasses must implement."},
+    {c:"OOP", q:"In the car analogy for abstraction, what represents the interface vs. the complex system?", a:"The interface is the steering wheel, brakes, and accelerator; the complex system is the engine, transmission, and braking physics."},
+    {c:"OOP", q:"What serves as the blueprint for creating objects?", a:"Classes."},
+    {c:"OOP", q:"Which module does Python use to implement abstract classes?", a:"abc"},
+    {c:"OOP", q:"What defines the data and behaviors of an object?", a:"Attributes and methods."},
+    {c:"OOP", q:"What is single inheritance?", a:"A child class inheriting attributes and methods from a single parent class."},
+    {c:"OOP", q:"Which OOP concept lets you hide complex implementation details, showing only essential features?", a:"Abstraction."},
+    {c:"OOP", q:"Which decorator do you use to create a setter?", a:"@<property_name>.setter"},
+    {c:"OOP", q:"Which OOP concept hides an object's internal state behind public methods/attributes acting like \"doors\"?", a:"Encapsulation."},
+    {c:"OOP", q:"What is a getter?", a:"A method that retrieves or returns the value of an attribute."},
+    {c:"OOP", q:"What is a setter?", a:"A method that sets or updates the value of an attribute."},
+    {c:"OOP", q:"What lets you delete a value you set and get with a setter and getter?", a:"A deleter (`@<property_name>.deleter`)."},
+    {c:"OOP", q:"What promotes code reuse, provides clear hierarchies, and allows customizing behavior without rewriting everything?", a:"Inheritance."},
+    {c:"OOP", q:"Which is the correct syntax of inheritance?", a:"class Parent:\n    pass\nclass Child(Parent):\n    pass"},
+    {c:"OOP", q:"What connects setters and getters?", a:"Properties."},
+    {c:"OOP", q:"What is the process by which Python internally renames a `__attribute` by adding the class name as a prefix?", a:"Name Mangling."},
+    {c:"OOP", q:"Which statement best describes polymorphism in OOP?", a:"It allows different classes to use the same method name while performing different actions when called."},
+    {c:"OOP", q:"Why does Python mangle the name of a double-underscore-prefixed attribute?", a:"To prevent accidental attribute/method overriding in subclasses when using inheritance."},
+    {c:"OOP", q:"Why are properties used instead of plain methods for getters and setters?", a:"To allow direct, attribute-like access with dot notation for better readability, while still running validation/logic behind the scenes."},
+
+    // Linear Data Structures
+    {c:"Linear Data Structures", q:"If an algorithm has a time complexity of O(n), what does that mean?", a:"The algorithm's running time increases proportionally with the input size."},
+    {c:"Linear Data Structures", q:"What is the most important first step when approaching a problem-solving challenge?", a:"Understand the problem statement, inputs, and constraints."},
+    {c:"Linear Data Structures", q:"What is the main purpose of writing pseudocode?", a:"To outline the algorithm's logic in a human-readable, language-agnostic way."},
+    {c:"Linear Data Structures", q:"Why is it important to consider edge cases before writing final code?", a:"They help ensure the algorithm works correctly for all valid inputs, not just the average case."},
+    {c:"Linear Data Structures", q:"What is the main size difference between a static array and a dynamic array?", a:"Static arrays have a fixed size; dynamic arrays can change size during runtime."},
+    {c:"Linear Data Structures", q:"If a static array is full and you need to add more elements, what's the typical process?", a:"You must create a new, larger array and copy all existing elements to it."},
+    {c:"Linear Data Structures", q:"In which scenario would a static array be more suitable than a dynamic array?", a:"When the data size is fixed and known at the time the program is written."},
+    {c:"Linear Data Structures", q:"Which operation adds an element to a stack?", a:"push"},
+    {c:"Linear Data Structures", q:"Which operation removes an element from a queue?", a:"dequeue"},
+    {c:"Linear Data Structures", q:"What is a linked list?", a:"A data structure where nodes are connected using references (pointers) to the next node."},
+    {c:"Linear Data Structures", q:"What is the difference between a singly and doubly linked list?", a:"Singly linked lists can only be traversed in one direction; doubly linked lists can be traversed in both directions."},
+    {c:"Linear Data Structures", q:"What mechanism allows hash maps and sets to achieve average-case O(1) performance?", a:"They use a hash function to compute a direct memory location (slot) for each element."},
+    {c:"Linear Data Structures", q:"Which guarantee is provided by a set data structure?", a:"It stores only unique elements — no duplicates."},
+    {c:"Linear Data Structures", q:"Why do hash maps resize (rehash) as they grow?", a:"To keep the load factor low so that average-case operations remain O(1)."},
+    {c:"Linear Data Structures", q:"Which statement about sets is true?", a:"Membership tests are typically O(1) on average."},
+    {c:"Linear Data Structures", q:"Which time complexity grows faster than O(n log n) as n becomes large?", a:"O(n²)"},
+    {c:"Linear Data Structures", q:"After implementing a brute-force solution, what is a good next step?", a:"Analyze its time/space complexity and optimize the identified bottlenecks."},
+
+    // Searching & Sorting
+    {c:"Searching & Sorting", q:"What is the space complexity of linear search?", a:"O(1)"},
+    {c:"Searching & Sorting", q:"Which is more suitable for a larger, sorted list — binary search or linear search?", a:"Binary search."},
+    {c:"Searching & Sorting", q:"What is the space complexity of binary search?", a:"O(1)"},
+    {c:"Searching & Sorting", q:"What does binary search return when it finds the target item?", a:"The index of the target item."},
+    {c:"Searching & Sorting", q:"Which computer science approach is used to implement merge sort?", a:"Divide-and-conquer."},
+
+    // Graphs & Trees
+    {c:"Graphs & Trees", q:"Which of the following is NOT a typical scenario represented using a graph?", a:"Temperature measurement over time — that's more suited to a simple time series, not a network structure."},
+    {c:"Graphs & Trees", q:"Which term describes an object or entity that is part of a graph's network?", a:"Node (or vertex)."},
+    {c:"Graphs & Trees", q:"Which term describes the connections between nodes in a graph?", a:"Edges."},
+    {c:"Graphs & Trees", q:"Which term refers to a directed graph with at least one cycle?", a:"Cyclic graph."},
+    {c:"Graphs & Trees", q:"What is a weighted graph?", a:"A specific type of edge-labeled graph where the labels represent values that can be compared and used in arithmetic operations."},
+    {c:"Graphs & Trees", q:"What is a directed acyclic graph (DAG)?", a:"A directed graph with no cycles."},
+    {c:"Graphs & Trees", q:"Which term refers to a graph with two or more groups of nodes not connected by any edges?", a:"Disconnected graph."},
+    {c:"Graphs & Trees", q:"What is the Breadth-First Search algorithm?", a:"An algorithm that visits all neighboring nodes (level by level) before moving to the next level in the graph."},
+    {c:"Graphs & Trees", q:"If you wanted the shortest path from a starting node to a target node in an unweighted graph, which algorithm is best?", a:"Breadth-First Search (BFS)."},
+    {c:"Graphs & Trees", q:"For which scenario is an adjacency matrix the most efficient representation?", a:"A dense graph where every node is connected to most other nodes."},
+    {c:"Graphs & Trees", q:"When is it more efficient to use an adjacency list over an adjacency matrix?", a:"When the graph is sparse, with a high number of vertices but a low number of edges."},
+    {c:"Graphs & Trees", q:"Which operation is faster in an adjacency matrix compared to an adjacency list?", a:"Checking if a direct edge exists between two specific nodes."},
+    {c:"Graphs & Trees", q:"Which term represents a 2D list where rows and columns represent the graph's vertices?", a:"Adjacency matrix."},
+    {c:"Graphs & Trees", q:"Which term represents an array or dictionary that stores all the neighbors of each node?", a:"Adjacency list."},
+    {c:"Graphs & Trees", q:"What is the fundamental difference between a general tree and a binary tree?", a:"A binary tree restricts each node to a maximum of two children; a general tree does not."},
+    {c:"Graphs & Trees", q:"What is a Trie?", a:"A tree data structure used to store a set of strings, where shared prefixes are stored only once."},
+    {c:"Graphs & Trees", q:"How does a priority queue differ from a regular queue?", a:"A priority queue processes elements based on their priority rather than the order they were added."},
+    {c:"Graphs & Trees", q:"Which is a common real-world application of a priority queue?", a:"Scheduling tasks in an operating system where some tasks are more urgent than others."},
+    {c:"Graphs & Trees", q:"What are the average and worst-case time complexities for inserting/extracting the min or max value from a heap?", a:"O(log n)"},
+
+    // Dynamic Programming
+    {c:"Dynamic Programming", q:"Why do naive recursive DP solutions typically have exponential time complexity?", a:"Because each recursive call branches multiple times, causing the same subproblems to be recalculated repeatedly."},
+    {c:"Dynamic Programming", q:"When memoization is used and a function is called with arguments already computed, what happens?", a:"The cached result is returned immediately, with no recomputation."},
+    {c:"Dynamic Programming", q:"In a bottom-up DP solution, why are base cases initialized first?", a:"To provide the foundational values upon which all larger subproblems are built."},
+  ];
+
+
+  // -------- Helper: shuffle --------
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  // -------- Build final bank: merge existing + new, deduplicate by question text, generate options for new --------
+  // Collect all correct answers from all questions (existing + new) for distractor generation
+  const allAnswers = EXISTING_BANK.map(q => q.a).concat(NEW_QUESTIONS.map(q => q.a));
+
+  // Function to generate 3 distractors for a given correct answer from the pool
+  function generateOptions(correctAnswer, pool) {
+    const candidates = pool.filter(a => a !== correctAnswer);
+    let selected = [];
+    if (candidates.length >= 3) {
+      const shuffledCandidates = shuffle(candidates);
+      selected = shuffledCandidates.slice(0, 3);
+    } else {
+      // Fallback: add placeholder distractors if not enough unique answers
+      const fallbacks = ["None of the above", "All of the above", "Depends on context"];
+      while (selected.length < 3) {
+        const fb = fallbacks[selected.length % fallbacks.length];
+        if (!selected.includes(fb) && fb !== correctAnswer) selected.push(fb);
+        else selected.push(fb + " (placeholder)");
+      }
+    }
+    // Shuffle options to avoid correct always in first position
+    return shuffle([correctAnswer, ...selected]);
+  }
+
+  // Deduplicate existing questions by text
+  const existingQSet = new Set(EXISTING_BANK.map(q => q.q));
+  const finalBank = [...EXISTING_BANK];
+
+  // Add new questions if not already present, generating options
+  NEW_QUESTIONS.forEach(nq => {
+    if (!existingQSet.has(nq.q)) {
+      const opts = generateOptions(nq.a, allAnswers);
+      finalBank.push({
+        c: nq.c,
+        q: nq.q,
+        a: nq.a,
+        opts: opts,
+        // code will be undefined, which is fine
+      });
+    }
+  });
+
+  // -------- Now the rest of the application uses 'finalBank' as the question pool --------
+  const BANK = finalBank;
+  const CATEGORIES = [...new Set(BANK.map(q => q.c))];
+
+  // -------- State --------
+  let state = {
+    selectedCategory: "All",
+    selectedCount: 20,
+    mode: "practice",
+    pool: [],
+    idx: 0,
+    chosen: null,
+    locked: false,
+    results: [],
+    timerStart: null,
+    timerInterval: null,
+  };
+
+  function countFor(cat) {
+    return cat === "All" ? BANK.length : BANK.filter(q => q.c === cat).length;
+  }
+
+  // -------- Setup UI --------
+  const categoryPillsEl = document.getElementById('categoryPills');
+  const countPillsEl = document.getElementById('countPills');
+  const gutterEl = document.getElementById('gutter');
+
+  function buildCategoryPills() {
+    const all = ["All", ...CATEGORIES];
+    categoryPillsEl.innerHTML = "";
+    all.forEach(cat => {
+      const p = document.createElement('button');
+      p.type = "button";
+      p.className = "pill" + (cat === state.selectedCategory ? " selected" : "");
+      p.innerHTML = cat + ` <span class="count">${countFor(cat)}</span>`;
+      p.addEventListener('click', () => {
+        state.selectedCategory = cat;
+        buildCategoryPills();
+        buildCountPills();
+      });
+      categoryPillsEl.appendChild(p);
+    });
+  }
+
+  function buildCountPills() {
+    const max = countFor(state.selectedCategory);
+    const opts = [10, 20, 40].filter(n => n < max);
+    opts.push(max);
+    const unique = [...new Set(opts)].sort((a, b) => a - b);
+    if (!unique.includes(state.selectedCount) || state.selectedCount > max) {
+      state.selectedCount = unique[Math.min(1, unique.length - 1)];
+    }
+    countPillsEl.innerHTML = "";
+    unique.forEach(n => {
+      const p = document.createElement('button');
+      p.type = "button";
+      p.className = "pill" + (n === state.selectedCount ? " selected" : "");
+      p.textContent = n === max ? `All (${n})` : n;
+      p.addEventListener('click', () => {
+        state.selectedCount = n;
+        buildCountPills();
+      });
+      countPillsEl.appendChild(p);
+    });
+  }
+
+  document.querySelectorAll('.toggle-card').forEach(card => {
+    const activate = () => {
+      document.querySelectorAll('.toggle-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      state.mode = card.dataset.mode;
+    };
+    card.addEventListener('click', activate);
+    card.addEventListener('keydown', e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); activate(); } });
+  });
+
+  buildCategoryPills();
+  buildCountPills();
+
+  // -------- Screen switching --------
+  const setupScreen = document.getElementById('setupScreen');
+  const quizScreen = document.getElementById('quizScreen');
+  const resultsScreen = document.getElementById('resultsScreen');
+  const tabLabel = document.getElementById('tabLabel');
+  const statusDot = document.getElementById('statusDot');
+  const timerDisplay = document.getElementById('timerDisplay');
+
+  function showScreen(name) {
+    setupScreen.classList.toggle('hidden', name !== "setup");
+    quizScreen.classList.toggle('hidden', name !== "quiz");
+    resultsScreen.classList.toggle('hidden', name !== "results");
+  }
+
+  function buildGutter(totalLines) {
+    gutterEl.innerHTML = "";
+    for (let i = 1; i <= totalLines; i++) {
+      const d = document.createElement('div');
+      d.textContent = i;
+      gutterEl.appendChild(d);
+    }
+  }
+  buildGutter(24);
+
+  // -------- Timer --------
+  function fmtTime(ms) {
+    const total = Math.floor(ms / 1000);
+    const m = String(Math.floor(total / 60)).padStart(2, '0');
+    const s = String(total % 60).padStart(2, '0');
+    return `${m}:${s}`;
+  }
+
+  function startTimer() {
+    state.timerStart = Date.now();
+    timerDisplay.classList.add('active');
+    clearInterval(state.timerInterval);
+    state.timerInterval = setInterval(() => {
+      timerDisplay.textContent = fmtTime(Date.now() - state.timerStart);
+    }, 1000);
+    timerDisplay.textContent = "00:00";
+  }
+
+  function stopTimer() {
+    clearInterval(state.timerInterval);
+    timerDisplay.classList.remove('active');
+  }
+
+  // -------- Start exam --------
+  document.getElementById('startBtn').addEventListener('click', () => {
+    const source = state.selectedCategory === "All" ? BANK : BANK.filter(q => q.c === state.selectedCategory);
+    const shuffled = shuffle(source).slice(0, state.selectedCount);
+    state.pool = shuffled.map(q => ({
+      ...q,
+      shuffledOpts: shuffle(q.opts)
+    }));
+    state.idx = 0;
+    state.results = [];
+    tabLabel.textContent = "practice_exam.py — running";
+    statusDot.style.background = "var(--accent-yellow)";
+
+    if (state.mode === "exam") { startTimer(); } else { stopTimer(); timerDisplay.textContent = ""; }
+
+    showScreen("quiz");
+    renderQuestion();
+  });
+
+  // -------- Question rendering --------
+  function renderQuestion(retryList) {
+    const list = retryList || state.pool;
+    const q = list[state.idx];
+    state.chosen = null;
+    state.locked = false;
+
+    document.getElementById('progressFill').style.width = `${(state.idx / list.length) * 100}%`;
+    document.getElementById('qCounter').textContent = `Q ${state.idx + 1} / ${list.length}`;
+    document.getElementById('qCat').textContent = q.c;
+    document.getElementById('qPrompt').textContent = `>>> question_${String(state.idx + 1).padStart(2, '0')}()`;
+    document.getElementById('qText').textContent = q.q;
+
+    const codeEl = document.getElementById('qCode');
+    if (q.code) {
+      codeEl.textContent = q.code;
+      codeEl.classList.remove('hidden');
+    } else {
+      codeEl.classList.add('hidden');
+    }
+
+    const optsList = document.getElementById('optionsList');
+    optsList.innerHTML = "";
+    const keys = ["A", "B", "C", "D"];
+    q.shuffledOpts.forEach((optText, i) => {
+      const li = document.createElement('li');
+      const btn = document.createElement('button');
+      btn.type = "button";
+      btn.className = "opt";
+      btn.innerHTML = `<span class="key">${keys[i]}</span><span class="optText"></span>`;
+      btn.querySelector('.optText').textContent = optText;
+      btn.addEventListener('click', () => selectOption(optText, btn, q, list));
+      li.appendChild(btn);
+      optsList.appendChild(li);
+    });
+
+    document.getElementById('feedbackLine').textContent = "";
+    document.getElementById('feedbackLine').className = "feedback-line";
+    document.getElementById('nextBtn').disabled = true;
+    buildGutter(Math.max(24, (q.code ? q.code.split('\n').length : 0) + 14));
+  }
+
+  function selectOption(optText, btn, q, list) {
+    if (state.locked) return;
+    state.locked = true;
+    state.chosen = optText;
+
+    const isCorrect = optText === q.a;
+    state.results.push({ q: q.q, c: q.c, correct: isCorrect, chosenText: optText, correctText: q.a });
+
+    document.querySelectorAll('.opt').forEach(o => o.classList.add('locked'));
+    btn.classList.add('chosen');
+
+    const feedback = document.getElementById('feedbackLine');
+    if (state.mode === "practice") {
+      document.querySelectorAll('.opt').forEach(o => {
+        const text = o.querySelector('.optText').textContent;
+        if (text === q.a) o.classList.add('correct');
+        else if (text === optText && !isCorrect) o.classList.add('incorrect');
+      });
+      feedback.textContent = isCorrect ? "✓ Correct." : `✗ Not quite — correct answer: ${q.a}`;
+      feedback.className = "feedback-line " + (isCorrect ? "correct" : "incorrect");
+    } else {
+      btn.classList.add(isCorrect ? 'chosen' : 'chosen');
+    }
+
+    document.getElementById('nextBtn').disabled = false;
+  }
+
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    const list = state.activeList || state.pool;
+    goNext(list);
+  });
+
+  function goNext(list) {
+    list = list || state.pool;
+    if (state.idx < list.length - 1) {
+      state.idx++;
+      renderQuestion(list);
+    } else {
+      finishExam(list);
+    }
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (quizScreen.classList.contains('hidden')) return;
+    const keyMap = { "1": 0, "2": 1, "3": 2, "4": 3, "a": 0, "b": 1, "c": 2, "d": 3, "A": 0, "B": 1, "C": 2, "D": 3 };
+    if (keyMap[e.key] !== undefined && !state.locked) {
+      const opts = document.querySelectorAll('.opt');
+      if (opts[keyMap[e.key]]) opts[keyMap[e.key]].click();
+    } else if (e.key === "Enter" && !document.getElementById('nextBtn').disabled) {
+      document.getElementById('nextBtn').click();
+    }
+  });
+
+  // -------- Results --------
+  function finishExam(list) {
+    stopTimer();
+    tabLabel.textContent = "practice_exam.py";
+    statusDot.style.background = "var(--success)";
+    showScreen("results");
+
+    const total = state.results.length;
+    const passed = state.results.filter(r => r.correct).length;
+    const failed = total - passed;
+    const pct = Math.round((passed / total) * 100);
+
+    const reportLog = document.getElementById('reportLog');
+    let collectedLine = `<div class="collected">collected ${total} items</div>`;
+    let lines = state.results.map((r, i) => {
+      const label = `test_q${String(i + 1).padStart(2, '0')}_${r.c.toLowerCase().replace(/[^a-z0-9]+/g, '_')}`;
+      return `<div class="report-line"><span class="name">${label}</span><span class="verdict ${r.correct ? 'pass' : 'fail'}">${r.correct ? 'PASSED' : 'FAILED'}</span></div>`;
+    }).join("");
+    reportLog.innerHTML = collectedLine + lines;
+
+    const summaryBar = document.getElementById('summaryBar');
+    const timeStr = state.mode === "exam" && state.timerStart ? ` in ${fmtTime(Date.now() - state.timerStart)}` : "";
+    summaryBar.textContent = `==== ${passed} passed, ${failed} failed (${pct}%)${timeStr} ====`;
+    summaryBar.className = "summary-bar " + (pct >= 70 ? "good" : "mixed");
+
+    document.getElementById('resultsHeadline').textContent = pct >= 70 ? "nice run." : "worth another pass.";
+
+    // category breakdown
+    const byCat = {};
+    state.results.forEach(r => {
+      if (!byCat[r.c]) byCat[r.c] = { correct: 0, total: 0 };
+      byCat[r.c].total++;
+      if (r.correct) byCat[r.c].correct++;
+    });
+    const body = document.getElementById('breakdownBody');
+    body.innerHTML = "";
+    Object.keys(byCat).sort().forEach(cat => {
+      const d = byCat[cat];
+      const catPct = Math.round((d.correct / d.total) * 100);
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${cat}
+          <div class="bar-bg"><div class="bar-fill ${catPct < 60 ? 'weak' : ''}" style="width:${catPct}%"></div></div>
+        </td>
+        <td class="num">${d.correct}/${d.total} (${catPct}%)</td>
+      `;
+      body.appendChild(tr);
+    });
+
+    document.getElementById('retryMissedBtn').classList.toggle('hidden', failed === 0);
+  }
+
+  document.getElementById('retryMissedBtn').addEventListener('click', () => {
+    const missedTexts = state.results.filter(r => !r.correct).map(r => r.q);
+    const missedQuestions = state.pool.filter(q => missedTexts.includes(q.q)).map(q => ({ ...q, shuffledOpts: shuffle(q.opts) }));
+    state.pool = missedQuestions;
+    state.idx = 0;
+    state.results = [];
+    tabLabel.textContent = "practice_exam.py — running";
+    statusDot.style.background = "var(--accent-yellow)";
+    if (state.mode === "exam") { startTimer(); }
+    showScreen("quiz");
+    renderQuestion();
+  });
+
+  document.getElementById('restartBtn').addEventListener('click', () => {
+    stopTimer();
+    timerDisplay.textContent = "";
+    tabLabel.textContent = "practice_exam.py";
+    statusDot.style.background = "var(--accent-yellow)";
+    showScreen("setup");
+  });
+
+})();
+</script>
+</body>
+</html>
