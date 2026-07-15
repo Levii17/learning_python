@@ -264,11 +264,11 @@ print(pow(2, 3))      # 8     → same as 2 ** 3
 
 ---
 
-## ⚡ Augmented Assignment
+## Augmented Assignment
 
 **Simple definition:** A shorthand that combines "do the math" and "save the result" into one line.
 
-**Analogy:** Instead of writing "take the amount in my wallet, add $5, then put that new total back in my wallet" , you just say "add $5 to my wallet." Same result, less typing.
+**Analogy:** Instead of writing "take the amount in my wallet, add R5, then put that new total back in my wallet" , you just say "add R5 to my wallet." Same result, less typing.
 
 ```python
 my_var = 10
