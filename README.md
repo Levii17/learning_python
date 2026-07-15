@@ -1,5 +1,7 @@
 # Python Learning Journey
 
+![freeCodeCamp Python Certificate](./assets/fcc_python_certificate.png)
+
 > Study notes, freeCodeCamp coursework, and personal projects , all documenting my path to becoming a Python developer.
 
 ---
